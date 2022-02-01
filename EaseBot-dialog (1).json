@@ -1,0 +1,6408 @@
+{
+  "name": "EaseBot",
+  "type": "dialog",
+  "status": "Available",
+  "created": "2022-01-15T10:46:39.720Z",
+  "updated": "2022-01-30T16:23:17.238Z",
+  "language": "en",
+  "skill_id": "a692ae23-489b-4098-883f-d3de2c2a80ec",
+  "workspace": {
+    "actions": [
+      {
+        "steps": [
+          {
+            "step": "step_114",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "HIV is a disease which prefers certain social groups. With evolving landscape, it is important to trace groups where HIV virus is circulating to allow better measures."
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_114",
+            "condition": {
+              "eq": [
+                {
+                  "variable": "step_138"
+                },
+                {
+                  "value": "Why?",
+                  "from_entity": "entity_19624"
+                }
+              ]
+            },
+            "next_step": "step_148"
+          },
+          {
+            "step": "step_119",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "Have you ever injected drugs for recreational use?"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                },
+                {
+                  "options": [
+                    {
+                      "label": "Yes, I have taken.",
+                      "value": {
+                        "input": {
+                          "text": "Yes, I have taken."
+                        }
+                      }
+                    },
+                    {
+                      "label": "No, I have not.",
+                      "value": {
+                        "input": {
+                          "text": "No, I have not."
+                        }
+                      }
+                    }
+                  ],
+                  "response_type": "option",
+                  "repeat_on_reprompt": true
+                }
+              ]
+            },
+            "handlers": [
+              {
+                "type": "not_found",
+                "title": "validation_not_found_handler",
+                "output": {
+                  "generic": [
+                    {
+                      "values": [
+                        {
+                          "text": "I didn't catch that. Select a valid option:"
+                        }
+                      ],
+                      "response_type": "text"
+                    }
+                  ]
+                },
+                "handler": "validation_not_found_handler",
+                "resolver": {
+                  "type": "prompt_again"
+                },
+                "next_handler": "validation_not_found_max_tries_handler"
+              },
+              {
+                "type": "not_found_max_tries",
+                "title": "validation_not_found_max_tries_handler",
+                "handler": "validation_not_found_max_tries_handler",
+                "resolver": {
+                  "type": "fallback"
+                }
+              }
+            ],
+            "question": {
+              "entity": "entity_45922",
+              "max_tries": 3
+            },
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_119",
+            "condition": {
+              "exists": {
+                "variable": "step_619"
+              }
+            },
+            "next_step": "step_269"
+          },
+          {
+            "step": "step_132",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "I was wondering, if you would like me to share some resources like National Helpline for HIV or FAQs about HIV Self-testing with you?"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                },
+                {
+                  "options": [
+                    {
+                      "label": "That sounds helpful",
+                      "value": {
+                        "input": {
+                          "text": "That sounds helpful"
+                        }
+                      }
+                    },
+                    {
+                      "label": "Sometime, later",
+                      "value": {
+                        "input": {
+                          "text": "Sometime, later"
+                        }
+                      }
+                    }
+                  ],
+                  "response_type": "option",
+                  "repeat_on_reprompt": true
+                }
+              ]
+            },
+            "handlers": [
+              {
+                "type": "not_found",
+                "title": "validation_not_found_handler",
+                "output": {
+                  "generic": [
+                    {
+                      "values": [
+                        {
+                          "text": "I didn't catch that. Select a valid option:"
+                        }
+                      ],
+                      "response_type": "text"
+                    }
+                  ]
+                },
+                "handler": "validation_not_found_handler",
+                "resolver": {
+                  "type": "prompt_again"
+                },
+                "next_handler": "validation_not_found_max_tries_handler"
+              },
+              {
+                "type": "not_found_max_tries",
+                "title": "validation_not_found_max_tries_handler",
+                "handler": "validation_not_found_max_tries_handler",
+                "resolver": {
+                  "type": "fallback"
+                }
+              }
+            ],
+            "question": {
+              "entity": "entity_15117",
+              "max_tries": 3
+            },
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_132",
+            "condition": {
+              "and": [
+                {
+                  "eq": [
+                    {
+                      "variable": "step_689"
+                    },
+                    {
+                      "value": "Oh! That's alot",
+                      "from_entity": "entity_48770"
+                    }
+                  ]
+                },
+                {
+                  "eq": [
+                    {
+                      "variable": "step_243"
+                    },
+                    {
+                      "value": "Oh! I see",
+                      "from_entity": "entity_19153"
+                    }
+                  ]
+                }
+              ]
+            },
+            "next_step": "step_138"
+          },
+          {
+            "step": "step_138",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "Before proceeding, I would like to know few things about you."
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                },
+                {
+                  "options": [
+                    {
+                      "label": "Why?",
+                      "value": {
+                        "input": {
+                          "text": "Why?"
+                        }
+                      }
+                    },
+                    {
+                      "label": "Alright!",
+                      "value": {
+                        "input": {
+                          "text": "Alright!"
+                        }
+                      }
+                    }
+                  ],
+                  "response_type": "option",
+                  "repeat_on_reprompt": true
+                }
+              ]
+            },
+            "handlers": [
+              {
+                "type": "not_found",
+                "title": "validation_not_found_handler",
+                "output": {
+                  "generic": [
+                    {
+                      "values": [
+                        {
+                          "text": "I didn't catch that. Select a valid option:"
+                        }
+                      ],
+                      "response_type": "text"
+                    }
+                  ]
+                },
+                "handler": "validation_not_found_handler",
+                "resolver": {
+                  "type": "prompt_again"
+                },
+                "next_handler": "validation_not_found_max_tries_handler"
+              },
+              {
+                "type": "not_found_max_tries",
+                "title": "validation_not_found_max_tries_handler",
+                "handler": "validation_not_found_max_tries_handler",
+                "resolver": {
+                  "type": "fallback"
+                }
+              }
+            ],
+            "question": {
+              "entity": "entity_19624",
+              "max_tries": 3
+            },
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_138",
+            "next_step": "step_114"
+          },
+          {
+            "step": "step_148",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "Which all languages can you speak?"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "question": {
+              "free_text": true,
+              "only_populate_when_prompted": true
+            },
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_148",
+            "condition": {
+              "exists": {
+                "variable": "step_138"
+              }
+            },
+            "next_step": "step_188"
+          },
+          {
+            "step": "step_150",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "Your estimated HIV risk appears to be very low according to DENVER."
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                },
+                {
+                  "options": [
+                    {
+                      "label": "Please explain more",
+                      "value": {
+                        "input": {
+                          "text": "Please explain more"
+                        }
+                      }
+                    }
+                  ],
+                  "response_type": "option",
+                  "repeat_on_reprompt": true
+                }
+              ]
+            },
+            "handlers": [
+              {
+                "type": "not_found",
+                "title": "validation_not_found_handler",
+                "output": {
+                  "generic": [
+                    {
+                      "values": [
+                        {
+                          "text": "I didn't catch that. Select a valid option:"
+                        }
+                      ],
+                      "response_type": "text"
+                    }
+                  ]
+                },
+                "handler": "validation_not_found_handler",
+                "resolver": {
+                  "type": "prompt_again"
+                },
+                "next_handler": "validation_not_found_max_tries_handler"
+              },
+              {
+                "type": "not_found_max_tries",
+                "title": "validation_not_found_max_tries_handler",
+                "handler": "validation_not_found_max_tries_handler",
+                "resolver": {
+                  "type": "fallback"
+                }
+              }
+            ],
+            "question": {
+              "entity": "entity_49687",
+              "max_tries": 3
+            },
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_150",
+            "condition": {
+              "and": [
+                {
+                  "eq": [
+                    {
+                      "variable": "step_459"
+                    },
+                    {
+                      "value": "Less than 22 years",
+                      "from_entity": "entity_2172"
+                    }
+                  ]
+                },
+                {
+                  "eq": [
+                    {
+                      "variable": "step_430"
+                    },
+                    {
+                      "value": "Cis-Female",
+                      "from_entity": "entity_48954"
+                    }
+                  ]
+                },
+                {
+                  "eq": [
+                    {
+                      "variable": "step_619"
+                    },
+                    {
+                      "value": "No, I have not",
+                      "from_entity": "entity_27033"
+                    }
+                  ]
+                },
+                {
+                  "eq": [
+                    {
+                      "variable": "step_119"
+                    },
+                    {
+                      "value": "No, I have not.",
+                      "from_entity": "entity_45922"
+                    }
+                  ]
+                },
+                {
+                  "eq": [
+                    {
+                      "variable": "step_269"
+                    },
+                    {
+                      "value": "No, I have not been tested ever.",
+                      "from_entity": "entity_44621"
+                    }
+                  ]
+                },
+                {
+                  "eq": [
+                    {
+                      "variable": "step_269"
+                    },
+                    {
+                      "value": "No, I have not been tested ever.",
+                      "from_entity": "entity_44621"
+                    }
+                  ]
+                }
+              ]
+            },
+            "next_step": "step_628"
+          },
+          {
+            "step": "step_157",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "I think you want to know your HIV Risk. Is that correct?"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                },
+                {
+                  "options": [
+                    {
+                      "label": "Yes, please proceed",
+                      "value": {
+                        "input": {
+                          "text": "Yes, please proceed"
+                        }
+                      }
+                    },
+                    {
+                      "label": "No, I don't feel like it.",
+                      "value": {
+                        "input": {
+                          "text": "No, I don't feel like it."
+                        }
+                      }
+                    }
+                  ],
+                  "response_type": "option",
+                  "repeat_on_reprompt": true
+                }
+              ]
+            },
+            "handlers": [
+              {
+                "type": "not_found",
+                "title": "validation_not_found_handler",
+                "output": {
+                  "generic": [
+                    {
+                      "values": [
+                        {
+                          "text": "I didn't catch that. Select a valid option:"
+                        }
+                      ],
+                      "response_type": "text"
+                    }
+                  ]
+                },
+                "handler": "validation_not_found_handler",
+                "resolver": {
+                  "type": "prompt_again"
+                },
+                "next_handler": "validation_not_found_max_tries_handler"
+              },
+              {
+                "type": "not_found_max_tries",
+                "title": "validation_not_found_max_tries_handler",
+                "handler": "validation_not_found_max_tries_handler",
+                "resolver": {
+                  "type": "fallback"
+                }
+              }
+            ],
+            "question": {
+              "entity": "entity_5232",
+              "max_tries": 3
+            },
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_157",
+            "next_step": "step_459"
+          },
+          {
+            "step": "step_188",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "Awesome! Which ethnicity do you identify with?"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "question": {
+              "free_text": true,
+              "only_populate_when_prompted": true
+            },
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_188",
+            "next_step": "step_716"
+          },
+          {
+            "step": "step_196",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "Where were you born?"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "question": {
+              "free_text": true,
+              "only_populate_when_prompted": true
+            },
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_196",
+            "next_step": "step_453"
+          },
+          {
+            "step": "step_243",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "It implies that out of 10000 people who have activities and orientations similar to yours only 3 are HIV positive."
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                },
+                {
+                  "options": [
+                    {
+                      "label": "Oh! I see",
+                      "value": {
+                        "input": {
+                          "text": "Oh! I see"
+                        }
+                      }
+                    }
+                  ],
+                  "response_type": "option",
+                  "repeat_on_reprompt": true
+                }
+              ]
+            },
+            "handlers": [
+              {
+                "type": "not_found",
+                "title": "validation_not_found_handler",
+                "output": {
+                  "generic": [
+                    {
+                      "values": [
+                        {
+                          "text": "I didn't catch that. Select a valid option:"
+                        }
+                      ],
+                      "response_type": "text"
+                    }
+                  ]
+                },
+                "handler": "validation_not_found_handler",
+                "resolver": {
+                  "type": "prompt_again"
+                },
+                "next_handler": "validation_not_found_max_tries_handler"
+              },
+              {
+                "type": "not_found_max_tries",
+                "title": "validation_not_found_max_tries_handler",
+                "handler": "validation_not_found_max_tries_handler",
+                "resolver": {
+                  "type": "fallback"
+                }
+              }
+            ],
+            "question": {
+              "entity": "entity_19153",
+              "max_tries": 3
+            },
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_243",
+            "condition": {
+              "eq": [
+                {
+                  "variable": "step_150"
+                },
+                {
+                  "value": "Please explain more",
+                  "from_entity": "entity_49687"
+                }
+              ]
+            },
+            "next_step": "step_689"
+          },
+          {
+            "step": "step_269",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "Have you ever been tested for HIV before?"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                },
+                {
+                  "options": [
+                    {
+                      "label": "Yes, I have been tested.",
+                      "value": {
+                        "input": {
+                          "text": "Yes, I have been tested."
+                        }
+                      }
+                    },
+                    {
+                      "label": "No, I have not been tested ever.",
+                      "value": {
+                        "input": {
+                          "text": "No, I have not been tested ever."
+                        }
+                      }
+                    }
+                  ],
+                  "response_type": "option",
+                  "repeat_on_reprompt": true
+                }
+              ]
+            },
+            "handlers": [
+              {
+                "type": "not_found",
+                "title": "validation_not_found_handler",
+                "output": {
+                  "generic": [
+                    {
+                      "values": [
+                        {
+                          "text": "I didn't catch that. Select a valid option:"
+                        }
+                      ],
+                      "response_type": "text"
+                    }
+                  ]
+                },
+                "handler": "validation_not_found_handler",
+                "resolver": {
+                  "type": "prompt_again"
+                },
+                "next_handler": "validation_not_found_max_tries_handler"
+              },
+              {
+                "type": "not_found_max_tries",
+                "title": "validation_not_found_max_tries_handler",
+                "handler": "validation_not_found_max_tries_handler",
+                "resolver": {
+                  "type": "fallback"
+                }
+              }
+            ],
+            "question": {
+              "entity": "entity_44621",
+              "max_tries": 3
+            },
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_269",
+            "condition": {
+              "exists": {
+                "variable": "step_119"
+              }
+            },
+            "next_step": "step_895"
+          },
+          {
+            "step": "step_353",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "Always :)"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_353"
+          },
+          {
+            "step": "step_430",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "What is your gender?"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                },
+                {
+                  "options": [
+                    {
+                      "label": "Trans-Male",
+                      "value": {
+                        "input": {
+                          "text": "Trans-Male"
+                        }
+                      }
+                    },
+                    {
+                      "label": "Trans-Female",
+                      "value": {
+                        "input": {
+                          "text": "Trans-Female"
+                        }
+                      }
+                    },
+                    {
+                      "label": "Non-Binary",
+                      "value": {
+                        "input": {
+                          "text": "Non-Binary"
+                        }
+                      }
+                    },
+                    {
+                      "label": "Cis-Male",
+                      "value": {
+                        "input": {
+                          "text": "Cis-Male"
+                        }
+                      }
+                    },
+                    {
+                      "label": "Cis-Female",
+                      "value": {
+                        "input": {
+                          "text": "Cis-Female"
+                        }
+                      }
+                    },
+                    {
+                      "label": "Agender",
+                      "value": {
+                        "input": {
+                          "text": "Agender"
+                        }
+                      }
+                    }
+                  ],
+                  "response_type": "option",
+                  "repeat_on_reprompt": true
+                }
+              ]
+            },
+            "handlers": [
+              {
+                "type": "not_found",
+                "title": "validation_not_found_handler",
+                "output": {
+                  "generic": [
+                    {
+                      "values": [
+                        {
+                          "text": "I didn't catch that. Select a valid option:"
+                        }
+                      ],
+                      "response_type": "text"
+                    }
+                  ]
+                },
+                "handler": "validation_not_found_handler",
+                "resolver": {
+                  "type": "prompt_again"
+                },
+                "next_handler": "validation_not_found_max_tries_handler"
+              },
+              {
+                "type": "not_found_max_tries",
+                "title": "validation_not_found_max_tries_handler",
+                "handler": "validation_not_found_max_tries_handler",
+                "resolver": {
+                  "type": "fallback"
+                }
+              }
+            ],
+            "question": {
+              "entity": "entity_48954",
+              "max_tries": 3
+            },
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_430",
+            "condition": {
+              "exists": {
+                "variable": "step_459"
+              }
+            },
+            "next_step": "step_619"
+          },
+          {
+            "step": "step_432",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "Which of the following acivities have you indulged in before?"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                },
+                {
+                  "options": [
+                    {
+                      "label": "Vaginal Sex",
+                      "value": {
+                        "input": {
+                          "text": "Vaginal Sex"
+                        }
+                      }
+                    },
+                    {
+                      "label": "Anal Sex",
+                      "value": {
+                        "input": {
+                          "text": "Anal Sex"
+                        }
+                      }
+                    },
+                    {
+                      "label": "Both",
+                      "value": {
+                        "input": {
+                          "text": "Both"
+                        }
+                      }
+                    }
+                  ],
+                  "response_type": "option",
+                  "repeat_on_reprompt": true
+                }
+              ]
+            },
+            "handlers": [
+              {
+                "type": "not_found",
+                "title": "validation_not_found_handler",
+                "output": {
+                  "generic": [
+                    {
+                      "values": [
+                        {
+                          "text": "I didn't catch that. Select a valid option:"
+                        }
+                      ],
+                      "response_type": "text"
+                    }
+                  ]
+                },
+                "handler": "validation_not_found_handler",
+                "resolver": {
+                  "type": "prompt_again"
+                },
+                "next_handler": "validation_not_found_max_tries_handler"
+              },
+              {
+                "type": "not_found_max_tries",
+                "title": "validation_not_found_max_tries_handler",
+                "handler": "validation_not_found_max_tries_handler",
+                "resolver": {
+                  "type": "fallback"
+                }
+              }
+            ],
+            "question": {
+              "entity": "entity_26571",
+              "max_tries": 3
+            },
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_432",
+            "condition": {
+              "exists": {
+                "variable": "step_532"
+              }
+            },
+            "next_step": "step_119"
+          },
+          {
+            "step": "step_453",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "Thank you so much!! I appreciate you for helping us identify HIV Community Risk."
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                },
+                {
+                  "options": [
+                    {
+                      "label": "Connect me to Helpline please!",
+                      "value": {
+                        "input": {
+                          "text": "Connect me to Helpline please!"
+                        }
+                      }
+                    },
+                    {
+                      "label": "Tell me about HIV Self-Testing",
+                      "value": {
+                        "input": {
+                          "text": "Tell me about HIV Self-Testing"
+                        }
+                      }
+                    }
+                  ],
+                  "response_type": "option",
+                  "repeat_on_reprompt": true
+                }
+              ]
+            },
+            "handlers": [
+              {
+                "type": "not_found",
+                "title": "validation_not_found_handler",
+                "output": {
+                  "generic": [
+                    {
+                      "values": [
+                        {
+                          "text": "I didn't catch that. Select a valid option:"
+                        }
+                      ],
+                      "response_type": "text"
+                    }
+                  ]
+                },
+                "handler": "validation_not_found_handler",
+                "resolver": {
+                  "type": "prompt_again"
+                },
+                "next_handler": "validation_not_found_max_tries_handler"
+              },
+              {
+                "type": "not_found_max_tries",
+                "title": "validation_not_found_max_tries_handler",
+                "handler": "validation_not_found_max_tries_handler",
+                "resolver": {
+                  "type": "fallback"
+                }
+              }
+            ],
+            "question": {
+              "entity": "entity_11668",
+              "max_tries": 3
+            },
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_453",
+            "next_step": "step_483"
+          },
+          {
+            "step": "step_459",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "What is your age?"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                },
+                {
+                  "options": [
+                    {
+                      "label": "Less than 22 years",
+                      "value": {
+                        "input": {
+                          "text": "Less than 22 years"
+                        }
+                      }
+                    },
+                    {
+                      "label": "22 years to 25 years",
+                      "value": {
+                        "input": {
+                          "text": "22 years to 25 years"
+                        }
+                      }
+                    },
+                    {
+                      "label": "26 years to 32 years",
+                      "value": {
+                        "input": {
+                          "text": "26 years to 32 years"
+                        }
+                      }
+                    },
+                    {
+                      "label": "33 years to 46 years",
+                      "value": {
+                        "input": {
+                          "text": "33 years to 46 years"
+                        }
+                      }
+                    },
+                    {
+                      "label": "47 years to 54 years",
+                      "value": {
+                        "input": {
+                          "text": "47 years to 54 years"
+                        }
+                      }
+                    },
+                    {
+                      "label": "55 years to 60 year",
+                      "value": {
+                        "input": {
+                          "text": "55 years to 60 year"
+                        }
+                      }
+                    },
+                    {
+                      "label": "Greater than 60 years",
+                      "value": {
+                        "input": {
+                          "text": "Greater than 60 years"
+                        }
+                      }
+                    }
+                  ],
+                  "response_type": "option",
+                  "repeat_on_reprompt": true
+                }
+              ]
+            },
+            "context": {
+              "variables": []
+            },
+            "handlers": [
+              {
+                "type": "not_found",
+                "title": "validation_not_found_handler",
+                "output": {
+                  "generic": [
+                    {
+                      "values": [
+                        {
+                          "text": "I didn't catch that. Select a valid option:"
+                        }
+                      ],
+                      "response_type": "text"
+                    }
+                  ]
+                },
+                "handler": "validation_not_found_handler",
+                "resolver": {
+                  "type": "prompt_again"
+                },
+                "next_handler": "validation_not_found_max_tries_handler"
+              },
+              {
+                "type": "not_found_max_tries",
+                "title": "validation_not_found_max_tries_handler",
+                "handler": "validation_not_found_max_tries_handler",
+                "resolver": {
+                  "type": "fallback"
+                }
+              }
+            ],
+            "question": {
+              "entity": "entity_2172",
+              "max_tries": 3
+            },
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_459",
+            "condition": {
+              "eq": [
+                {
+                  "variable": "step_157"
+                },
+                {
+                  "value": "Yes, please proceed",
+                  "from_entity": "entity_5232"
+                }
+              ]
+            },
+            "next_step": "step_430"
+          },
+          {
+            "step": "step_483",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "Alright!! Just sharing the helpine number with you."
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "connect_to_agent",
+              "response": {
+                "transfer_info": {
+                  "target": {}
+                },
+                "agent_available": {
+                  "message": "Let's send you to an available agent."
+                },
+                "agent_unavailable": {
+                  "message": "There are no agents available at this time. When one becomes available, we'll connect you."
+                },
+                "message_to_human_agent": ""
+              }
+            },
+            "variable": "step_483",
+            "next_step": "step_999"
+          },
+          {
+            "step": "step_532",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "Which genders have you had sexual encounter with?"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                },
+                {
+                  "options": [
+                    {
+                      "label": "Male",
+                      "value": {
+                        "input": {
+                          "text": "Male"
+                        }
+                      }
+                    },
+                    {
+                      "label": "Female",
+                      "value": {
+                        "input": {
+                          "text": "Female"
+                        }
+                      }
+                    },
+                    {
+                      "label": "Both",
+                      "value": {
+                        "input": {
+                          "text": "Both"
+                        }
+                      }
+                    }
+                  ],
+                  "response_type": "option",
+                  "repeat_on_reprompt": true
+                }
+              ]
+            },
+            "handlers": [
+              {
+                "type": "not_found",
+                "title": "validation_not_found_handler",
+                "output": {
+                  "generic": [
+                    {
+                      "values": [
+                        {
+                          "text": "I didn't catch that. Select a valid option:"
+                        }
+                      ],
+                      "response_type": "text"
+                    }
+                  ]
+                },
+                "handler": "validation_not_found_handler",
+                "resolver": {
+                  "type": "prompt_again"
+                },
+                "next_handler": "validation_not_found_max_tries_handler"
+              },
+              {
+                "type": "not_found_max_tries",
+                "title": "validation_not_found_max_tries_handler",
+                "handler": "validation_not_found_max_tries_handler",
+                "resolver": {
+                  "type": "fallback"
+                }
+              }
+            ],
+            "question": {
+              "entity": "entity_6402",
+              "max_tries": 3
+            },
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_532",
+            "condition": {
+              "eq": [
+                {
+                  "variable": "step_619"
+                },
+                {
+                  "value": "Yes, I have",
+                  "from_entity": "entity_27033"
+                }
+              ]
+            },
+            "next_step": "step_432"
+          },
+          {
+            "step": "step_619",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "Have you indulged in sexual activity before?"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                },
+                {
+                  "options": [
+                    {
+                      "label": "Yes, I have",
+                      "value": {
+                        "input": {
+                          "text": "Yes, I have"
+                        }
+                      }
+                    },
+                    {
+                      "label": "No, I have not",
+                      "value": {
+                        "input": {
+                          "text": "No, I have not"
+                        }
+                      }
+                    }
+                  ],
+                  "response_type": "option",
+                  "repeat_on_reprompt": true
+                }
+              ]
+            },
+            "handlers": [
+              {
+                "type": "not_found",
+                "title": "validation_not_found_handler",
+                "output": {
+                  "generic": [
+                    {
+                      "values": [
+                        {
+                          "text": "I didn't catch that. Select a valid option:"
+                        }
+                      ],
+                      "response_type": "text"
+                    }
+                  ]
+                },
+                "handler": "validation_not_found_handler",
+                "resolver": {
+                  "type": "prompt_again"
+                },
+                "next_handler": "validation_not_found_max_tries_handler"
+              },
+              {
+                "type": "not_found_max_tries",
+                "title": "validation_not_found_max_tries_handler",
+                "handler": "validation_not_found_max_tries_handler",
+                "resolver": {
+                  "type": "fallback"
+                }
+              }
+            ],
+            "question": {
+              "entity": "entity_27033",
+              "max_tries": 3
+            },
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_619",
+            "condition": {
+              "exists": {
+                "variable": "step_430"
+              }
+            },
+            "next_step": "step_532"
+          },
+          {
+            "step": "step_628",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "Your estimated HIV Risk according to the DENVER HIV Risk Scoring Tool appears to be Very high"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                },
+                {
+                  "options": [
+                    {
+                      "label": "Please Explain More",
+                      "value": {
+                        "input": {
+                          "text": "Please Explain More"
+                        }
+                      }
+                    }
+                  ],
+                  "response_type": "option",
+                  "repeat_on_reprompt": true
+                }
+              ]
+            },
+            "handlers": [
+              {
+                "type": "not_found",
+                "title": "validation_not_found_handler",
+                "output": {
+                  "generic": [
+                    {
+                      "values": [
+                        {
+                          "text": "I didn't catch that. Select a valid option:"
+                        }
+                      ],
+                      "response_type": "text"
+                    }
+                  ]
+                },
+                "handler": "validation_not_found_handler",
+                "resolver": {
+                  "type": "prompt_again"
+                },
+                "next_handler": "validation_not_found_max_tries_handler"
+              },
+              {
+                "type": "not_found_max_tries",
+                "title": "validation_not_found_max_tries_handler",
+                "handler": "validation_not_found_max_tries_handler",
+                "resolver": {
+                  "type": "fallback"
+                }
+              }
+            ],
+            "question": {
+              "entity": "entity_32727",
+              "max_tries": 3
+            },
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_628",
+            "condition": {
+              "and": [
+                {
+                  "eq": [
+                    {
+                      "variable": "step_459"
+                    },
+                    {
+                      "value": "26 years to 32 years",
+                      "from_entity": "entity_2172"
+                    }
+                  ]
+                },
+                {
+                  "eq": [
+                    {
+                      "variable": "step_430"
+                    },
+                    {
+                      "value": "Trans-Male",
+                      "from_entity": "entity_48954"
+                    }
+                  ]
+                },
+                {
+                  "eq": [
+                    {
+                      "variable": "step_619"
+                    },
+                    {
+                      "value": "Yes, I have",
+                      "from_entity": "entity_27033"
+                    }
+                  ]
+                },
+                {
+                  "eq": [
+                    {
+                      "variable": "step_532"
+                    },
+                    {
+                      "value": "Both",
+                      "from_entity": "entity_6402"
+                    }
+                  ]
+                },
+                {
+                  "eq": [
+                    {
+                      "variable": "step_432"
+                    },
+                    {
+                      "value": "Both",
+                      "from_entity": "entity_26571"
+                    }
+                  ]
+                },
+                {
+                  "eq": [
+                    {
+                      "variable": "step_119"
+                    },
+                    {
+                      "value": "Yes, I have taken.",
+                      "from_entity": "entity_45922"
+                    }
+                  ]
+                },
+                {
+                  "eq": [
+                    {
+                      "variable": "step_269"
+                    },
+                    {
+                      "value": "No, I have not been tested ever.",
+                      "from_entity": "entity_44621"
+                    }
+                  ]
+                }
+              ]
+            },
+            "next_step": "step_243"
+          },
+          {
+            "step": "step_689",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "It implies that out of 10000 people who have activities and orientations similar to yours around 359 are HIV positive."
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                },
+                {
+                  "options": [
+                    {
+                      "label": "Oh! That's alot",
+                      "value": {
+                        "input": {
+                          "text": "Oh! That's alot"
+                        }
+                      }
+                    }
+                  ],
+                  "response_type": "option",
+                  "repeat_on_reprompt": true
+                }
+              ]
+            },
+            "handlers": [
+              {
+                "type": "not_found",
+                "title": "validation_not_found_handler",
+                "output": {
+                  "generic": [
+                    {
+                      "values": [
+                        {
+                          "text": "I didn't catch that. Select a valid option:"
+                        }
+                      ],
+                      "response_type": "text"
+                    }
+                  ]
+                },
+                "handler": "validation_not_found_handler",
+                "resolver": {
+                  "type": "prompt_again"
+                },
+                "next_handler": "validation_not_found_max_tries_handler"
+              },
+              {
+                "type": "not_found_max_tries",
+                "title": "validation_not_found_max_tries_handler",
+                "handler": "validation_not_found_max_tries_handler",
+                "resolver": {
+                  "type": "fallback"
+                }
+              }
+            ],
+            "question": {
+              "entity": "entity_48770",
+              "max_tries": 3
+            },
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_689",
+            "condition": {
+              "eq": [
+                {
+                  "variable": "step_628"
+                },
+                {
+                  "value": "Please Explain More",
+                  "from_entity": "entity_32727"
+                }
+              ]
+            },
+            "next_step": "step_132"
+          },
+          {
+            "step": "step_716",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "Where do you live currently?"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "question": {
+              "free_text": true,
+              "only_populate_when_prompted": true
+            },
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_716",
+            "next_step": "step_196"
+          },
+          {
+            "step": "step_895",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "Let me estimate your HIV Risk....."
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_895",
+            "condition": {
+              "and": [
+                {
+                  "exists": {
+                    "variable": "step_430"
+                  }
+                },
+                {
+                  "exists": {
+                    "variable": "step_459"
+                  }
+                },
+                {
+                  "exists": {
+                    "variable": "step_432"
+                  }
+                },
+                {
+                  "exists": {
+                    "variable": "step_619"
+                  }
+                },
+                {
+                  "exists": {
+                    "variable": "step_119"
+                  }
+                },
+                {
+                  "exists": {
+                    "variable": "step_269"
+                  }
+                }
+              ]
+            },
+            "next_step": "step_150"
+          },
+          {
+            "step": "step_999",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "I hope I could be of help."
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                },
+                {
+                  "options": [
+                    {
+                      "label": "Thanks EaseBot",
+                      "value": {
+                        "input": {
+                          "text": "Thanks EaseBot"
+                        }
+                      }
+                    }
+                  ],
+                  "response_type": "option",
+                  "repeat_on_reprompt": true
+                }
+              ]
+            },
+            "handlers": [
+              {
+                "type": "not_found",
+                "title": "validation_not_found_handler",
+                "output": {
+                  "generic": [
+                    {
+                      "values": [
+                        {
+                          "text": "I didn't catch that. Select a valid option:"
+                        }
+                      ],
+                      "response_type": "text"
+                    }
+                  ]
+                },
+                "handler": "validation_not_found_handler",
+                "resolver": {
+                  "type": "prompt_again"
+                },
+                "next_handler": "validation_not_found_max_tries_handler"
+              },
+              {
+                "type": "not_found_max_tries",
+                "title": "validation_not_found_max_tries_handler",
+                "handler": "validation_not_found_max_tries_handler",
+                "resolver": {
+                  "type": "fallback"
+                }
+              }
+            ],
+            "question": {
+              "entity": "entity_8526",
+              "max_tries": 3
+            },
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_999",
+            "next_step": "step_353"
+          }
+        ],
+        "title": "DENVER HIV Risk Prediction and Helpline",
+        "action": "action_16613",
+        "handlers": [],
+        "condition": {
+          "intent": "action_16613_intent_35234"
+        },
+        "variables": [
+          {
+            "title": "HIV is a disease which prefers certain social groups. With evolv",
+            "variable": "step_114",
+            "data_type": "any"
+          },
+          {
+            "title": "Have you ever injected drugs for recreational use?",
+            "variable": "step_119",
+            "data_type": "any"
+          },
+          {
+            "title": "I was wondering, if you would like me to share some resources li",
+            "variable": "step_132",
+            "data_type": "any"
+          },
+          {
+            "title": "Before proceeding, I would like to know few things about you.",
+            "variable": "step_138",
+            "data_type": "any"
+          },
+          {
+            "title": "Which all languages can you speak?",
+            "variable": "step_148",
+            "data_type": "any"
+          },
+          {
+            "title": "Your estimated HIV risk appears to be very low according to DENV",
+            "variable": "step_150",
+            "data_type": "any"
+          },
+          {
+            "title": "I think you want to know your HIV Risk. Is that correct?",
+            "variable": "step_157",
+            "data_type": "any"
+          },
+          {
+            "title": "Awesome! Which ethnicity do you identify with?",
+            "variable": "step_188",
+            "data_type": "any"
+          },
+          {
+            "title": "Where were you born? {variable}",
+            "variable": "step_196",
+            "data_type": "any"
+          },
+          {
+            "title": "It implies that out of 1000 people who have activities and orien",
+            "variable": "step_243",
+            "data_type": "any"
+          },
+          {
+            "title": "Have you ever been tested for HIV before?",
+            "variable": "step_269",
+            "data_type": "any"
+          },
+          {
+            "title": "Always :)",
+            "variable": "step_353",
+            "data_type": "any"
+          },
+          {
+            "title": "What is your gender?",
+            "variable": "step_430",
+            "data_type": "any"
+          },
+          {
+            "title": "Which of the following acivities have you indulged in before?",
+            "variable": "step_432",
+            "data_type": "any"
+          },
+          {
+            "variable": "step_442_result_1",
+            "data_type": "any"
+          },
+          {
+            "title": "Thank you so much!! I appreciate you for helping us identify HIV",
+            "variable": "step_453",
+            "data_type": "any"
+          },
+          {
+            "title": "What is your age?",
+            "variable": "step_459",
+            "data_type": "any"
+          },
+          {
+            "title": "Alright!! Just sharing the helpine number with you.",
+            "variable": "step_483",
+            "data_type": "any"
+          },
+          {
+            "title": "Which genders have you had sexual encounter with?",
+            "variable": "step_532",
+            "data_type": "any"
+          },
+          {
+            "title": "Have you indulged in sexual activity before?",
+            "variable": "step_619",
+            "data_type": "any"
+          },
+          {
+            "title": "Your estimated HIV Risk according to the DENVER HIV Risk Scoring",
+            "variable": "step_628",
+            "data_type": "any"
+          },
+          {
+            "title": "It implies that out of 10000 people who have activities and orie",
+            "variable": "step_689",
+            "data_type": "any"
+          },
+          {
+            "title": "Where do you live currently?",
+            "variable": "step_716",
+            "data_type": "any"
+          },
+          {
+            "variable": "step_799_result_1",
+            "data_type": "any"
+          },
+          {
+            "title": "Let me estimate your HIV Risk.....",
+            "variable": "step_895",
+            "data_type": "any"
+          },
+          {
+            "variable": "step_911_result_1",
+            "data_type": "any"
+          },
+          {
+            "title": "I hope I could be of help.",
+            "variable": "step_999",
+            "data_type": "any"
+          }
+        ],
+        "next_action": "fallback",
+        "topic_switch": {
+          "allowed_from": true,
+          "allowed_into": true
+        },
+        "disambiguation_opt_out": false
+      },
+      {
+        "steps": [
+          {
+            "step": "step_168",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "Awesome!! Just opening up QR code scanner for you"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_168",
+            "condition": {
+              "eq": [
+                {
+                  "variable": "step_460"
+                },
+                {
+                  "value": "Yes, go ahead",
+                  "from_entity": "entity_43480"
+                }
+              ]
+            },
+            "next_step": "step_813"
+          },
+          {
+            "step": "step_194",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "Do you wish to scan your partner's QR code?"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                },
+                {
+                  "options": [
+                    {
+                      "label": "Yes, I would like to ",
+                      "value": {
+                        "input": {
+                          "text": "Yes, I would like to "
+                        }
+                      }
+                    },
+                    {
+                      "label": "No, you misunderstood me",
+                      "value": {
+                        "input": {
+                          "text": "No, you misunderstood me"
+                        }
+                      }
+                    }
+                  ],
+                  "response_type": "option",
+                  "repeat_on_reprompt": true
+                }
+              ]
+            },
+            "handlers": [
+              {
+                "type": "not_found",
+                "title": "validation_not_found_handler",
+                "output": {
+                  "generic": [
+                    {
+                      "values": [
+                        {
+                          "text": "I didn't catch that. Select a valid option:"
+                        }
+                      ],
+                      "response_type": "text"
+                    }
+                  ]
+                },
+                "handler": "validation_not_found_handler",
+                "resolver": {
+                  "type": "prompt_again"
+                },
+                "next_handler": "validation_not_found_max_tries_handler"
+              },
+              {
+                "type": "not_found_max_tries",
+                "title": "validation_not_found_max_tries_handler",
+                "handler": "validation_not_found_max_tries_handler",
+                "resolver": {
+                  "type": "fallback"
+                }
+              }
+            ],
+            "question": {
+              "entity": "entity_11602",
+              "max_tries": 3
+            },
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_194",
+            "next_step": "step_460"
+          },
+          {
+            "step": "step_394",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "I am trained to assign QR code to you and your partner which will help me notify you guys, if you have a high risk of STD and should get tested."
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                },
+                {
+                  "options": [
+                    {
+                      "label": "How will scanning help in knowing risk?",
+                      "value": {
+                        "input": {
+                          "text": "How will scanning help in knowing risk?"
+                        }
+                      }
+                    }
+                  ],
+                  "response_type": "option",
+                  "repeat_on_reprompt": true
+                }
+              ]
+            },
+            "handlers": [
+              {
+                "type": "not_found",
+                "title": "validation_not_found_handler",
+                "output": {
+                  "generic": [
+                    {
+                      "values": [
+                        {
+                          "text": "I didn't catch that. Select a valid option:"
+                        }
+                      ],
+                      "response_type": "text"
+                    }
+                  ]
+                },
+                "handler": "validation_not_found_handler",
+                "resolver": {
+                  "type": "prompt_again"
+                },
+                "next_handler": "validation_not_found_max_tries_handler"
+              },
+              {
+                "type": "not_found_max_tries",
+                "title": "validation_not_found_max_tries_handler",
+                "handler": "validation_not_found_max_tries_handler",
+                "resolver": {
+                  "type": "fallback"
+                }
+              }
+            ],
+            "question": {
+              "entity": "entity_49712",
+              "max_tries": 3
+            },
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_394",
+            "next_step": "step_877"
+          },
+          {
+            "step": "step_427",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "Is there something else I can assist you with?"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "invoke_another_action",
+              "invoke_action": {
+                "action": "fallback",
+                "parameters": null,
+                "result_variable": "step_427_result_1"
+              }
+            },
+            "variable": "step_427",
+            "condition": {
+              "eq": [
+                {
+                  "variable": "step_460"
+                },
+                {
+                  "value": "No, I don't at the moment.",
+                  "from_entity": "entity_43480"
+                }
+              ]
+            }
+          },
+          {
+            "step": "step_460",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "By scanning your partner's QR Code, you give your partner permission to know, they are at risk of having sexually transmitted disease if you test positive for one."
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                },
+                {
+                  "options": [
+                    {
+                      "label": "Yes, go ahead",
+                      "value": {
+                        "input": {
+                          "text": "Yes, go ahead"
+                        }
+                      }
+                    },
+                    {
+                      "label": "No, I don't at the moment.",
+                      "value": {
+                        "input": {
+                          "text": "No, I don't at the moment."
+                        }
+                      }
+                    },
+                    {
+                      "label": "Show my QR code, instead",
+                      "value": {
+                        "input": {
+                          "text": "Show my QR code, instead"
+                        }
+                      }
+                    }
+                  ],
+                  "response_type": "option",
+                  "repeat_on_reprompt": true
+                }
+              ]
+            },
+            "handlers": [
+              {
+                "type": "not_found",
+                "title": "validation_not_found_handler",
+                "output": {
+                  "generic": [
+                    {
+                      "values": [
+                        {
+                          "text": "I didn't catch that. Select a valid option:"
+                        }
+                      ],
+                      "response_type": "text"
+                    }
+                  ]
+                },
+                "handler": "validation_not_found_handler",
+                "resolver": {
+                  "type": "prompt_again"
+                },
+                "next_handler": "validation_not_found_max_tries_handler"
+              },
+              {
+                "type": "not_found_max_tries",
+                "title": "validation_not_found_max_tries_handler",
+                "handler": "validation_not_found_max_tries_handler",
+                "resolver": {
+                  "type": "fallback"
+                }
+              }
+            ],
+            "question": {
+              "entity": "entity_43480",
+              "max_tries": 3
+            },
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_460",
+            "condition": {
+              "eq": [
+                {
+                  "variable": "step_194"
+                },
+                {
+                  "value": "Yes, I would like to ",
+                  "from_entity": "entity_11602"
+                }
+              ]
+            },
+            "next_step": "step_612"
+          },
+          {
+            "step": "step_571",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "You will not be notified about the name of the person you may get it from. You will just be sent alert of high risk."
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                },
+                {
+                  "options": [
+                    {
+                      "label": "I am glad it's protecting my privacy",
+                      "value": {
+                        "input": {
+                          "text": "I am glad it's protecting my privacy"
+                        }
+                      }
+                    },
+                    {
+                      "label": "My name is confidential then, from my partner",
+                      "value": {
+                        "input": {
+                          "text": "My name is confidential then, from my partner"
+                        }
+                      }
+                    }
+                  ],
+                  "response_type": "option",
+                  "repeat_on_reprompt": true
+                }
+              ]
+            },
+            "handlers": [
+              {
+                "type": "not_found",
+                "title": "validation_not_found_handler",
+                "output": {
+                  "generic": [
+                    {
+                      "values": [
+                        {
+                          "text": "I didn't catch that. Select a valid option:"
+                        }
+                      ],
+                      "response_type": "text"
+                    }
+                  ]
+                },
+                "handler": "validation_not_found_handler",
+                "resolver": {
+                  "type": "prompt_again"
+                },
+                "next_handler": "validation_not_found_max_tries_handler"
+              },
+              {
+                "type": "not_found_max_tries",
+                "title": "validation_not_found_max_tries_handler",
+                "handler": "validation_not_found_max_tries_handler",
+                "resolver": {
+                  "type": "fallback"
+                }
+              }
+            ],
+            "question": {
+              "entity": "entity_2290",
+              "max_tries": 3
+            },
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_571",
+            "condition": {
+              "eq": [
+                {
+                  "variable": "step_877"
+                },
+                {
+                  "value": "Oh! I see",
+                  "from_entity": "entity_17434"
+                }
+              ]
+            },
+            "next_step": "step_709"
+          },
+          {
+            "step": "step_612",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "Similarly, you also obtain permission from your partner to know that you are at risk, once they develop a sexually transmitted disease."
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                },
+                {
+                  "options": [
+                    {
+                      "label": "Thanks!!",
+                      "value": {
+                        "input": {
+                          "text": "Thanks!!"
+                        }
+                      }
+                    },
+                    {
+                      "label": "Oh! I have always wanted to know that.",
+                      "value": {
+                        "input": {
+                          "text": "Oh! I have always wanted to know that."
+                        }
+                      }
+                    }
+                  ],
+                  "response_type": "option",
+                  "repeat_on_reprompt": true
+                }
+              ]
+            },
+            "handlers": [
+              {
+                "type": "not_found",
+                "title": "validation_not_found_handler",
+                "output": {
+                  "generic": [
+                    {
+                      "values": [
+                        {
+                          "text": "I didn't catch that. Select a valid option:"
+                        }
+                      ],
+                      "response_type": "text"
+                    }
+                  ]
+                },
+                "handler": "validation_not_found_handler",
+                "resolver": {
+                  "type": "prompt_again"
+                },
+                "next_handler": "validation_not_found_max_tries_handler"
+              },
+              {
+                "type": "not_found_max_tries",
+                "title": "validation_not_found_max_tries_handler",
+                "handler": "validation_not_found_max_tries_handler",
+                "resolver": {
+                  "type": "fallback"
+                }
+              }
+            ],
+            "question": {
+              "entity": "entity_27051",
+              "max_tries": 3
+            },
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_612",
+            "next_step": "step_168"
+          },
+          {
+            "step": "step_702",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "Woohoo!! I really appreciate you for taking a step towards your coital health."
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_702",
+            "next_step": "step_427"
+          },
+          {
+            "step": "step_709",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "Let us generate your QR Code first"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                },
+                {
+                  "options": [
+                    {
+                      "label": "Okay",
+                      "value": {
+                        "input": {
+                          "text": "Okay"
+                        }
+                      }
+                    }
+                  ],
+                  "response_type": "option",
+                  "repeat_on_reprompt": true
+                }
+              ]
+            },
+            "handlers": [
+              {
+                "type": "not_found",
+                "title": "validation_not_found_handler",
+                "output": {
+                  "generic": [
+                    {
+                      "values": [
+                        {
+                          "text": "I didn't catch that. Select a valid option:"
+                        }
+                      ],
+                      "response_type": "text"
+                    }
+                  ]
+                },
+                "handler": "validation_not_found_handler",
+                "resolver": {
+                  "type": "prompt_again"
+                },
+                "next_handler": "validation_not_found_max_tries_handler"
+              },
+              {
+                "type": "not_found_max_tries",
+                "title": "validation_not_found_max_tries_handler",
+                "handler": "validation_not_found_max_tries_handler",
+                "resolver": {
+                  "type": "fallback"
+                }
+              }
+            ],
+            "question": {
+              "entity": "entity_42585",
+              "max_tries": 3
+            },
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_709",
+            "condition": {
+              "exists": {
+                "variable": "step_571"
+              }
+            },
+            "next_step": "step_194"
+          },
+          {
+            "step": "step_813",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "Do you wish to proceed?"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "connect_to_agent",
+              "response": {
+                "transfer_info": {
+                  "target": {}
+                },
+                "agent_available": {
+                  "message": "Let's send you to an available agent."
+                },
+                "agent_unavailable": {
+                  "message": "There are no agents available at this time. When one becomes available, we'll connect you."
+                },
+                "message_to_human_agent": ""
+              }
+            },
+            "variable": "step_813",
+            "next_step": "step_702"
+          },
+          {
+            "step": "step_877",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "Well, we will assign a unique code to each partner. Whenever one partner tests positive, their code will be used by health agency to track codes of previous contacts and notify them the risk via the app."
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                },
+                {
+                  "options": [
+                    {
+                      "label": "Oh! I see",
+                      "value": {
+                        "input": {
+                          "text": "Oh! I see"
+                        }
+                      }
+                    }
+                  ],
+                  "response_type": "option",
+                  "repeat_on_reprompt": true
+                }
+              ]
+            },
+            "handlers": [
+              {
+                "type": "not_found",
+                "title": "validation_not_found_handler",
+                "output": {
+                  "generic": [
+                    {
+                      "values": [
+                        {
+                          "text": "I didn't catch that. Select a valid option:"
+                        }
+                      ],
+                      "response_type": "text"
+                    }
+                  ]
+                },
+                "handler": "validation_not_found_handler",
+                "resolver": {
+                  "type": "prompt_again"
+                },
+                "next_handler": "validation_not_found_max_tries_handler"
+              },
+              {
+                "type": "not_found_max_tries",
+                "title": "validation_not_found_max_tries_handler",
+                "handler": "validation_not_found_max_tries_handler",
+                "resolver": {
+                  "type": "fallback"
+                }
+              }
+            ],
+            "question": {
+              "entity": "entity_17434",
+              "max_tries": 3
+            },
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_877",
+            "condition": {
+              "eq": [
+                {
+                  "variable": "step_394"
+                },
+                {
+                  "value": "How will scanning help in knowing risk?",
+                  "from_entity": "entity_49712"
+                }
+              ]
+            },
+            "next_step": "step_571"
+          }
+        ],
+        "title": "I want to track sexual activity",
+        "action": "action_17247",
+        "handlers": [],
+        "condition": {
+          "intent": "action_17247_intent_40983"
+        },
+        "variables": [
+          {
+            "title": "Awesome!! Just opening up QR code scanner for you",
+            "variable": "step_168",
+            "data_type": "any"
+          },
+          {
+            "title": "Do you wish to scan your partner's QR code?",
+            "variable": "step_194",
+            "data_type": "any"
+          },
+          {
+            "title": "I am trained to assign QR code to you and your partner which wil",
+            "variable": "step_394",
+            "data_type": "any"
+          },
+          {
+            "title": "Is there something else I can assist you with?",
+            "variable": "step_427",
+            "data_type": "any"
+          },
+          {
+            "variable": "step_427_result_1",
+            "data_type": "any"
+          },
+          {
+            "title": "By scanning your partner's QR Code, you give your partner permis",
+            "variable": "step_460",
+            "data_type": "any"
+          },
+          {
+            "title": "You will not be notified about the name of the person you may ge",
+            "variable": "step_571",
+            "data_type": "any"
+          },
+          {
+            "title": "Similarly, you also obtain permission from your partner to know ",
+            "variable": "step_612",
+            "data_type": "any"
+          },
+          {
+            "title": "Woohoo!! I really appreciate you for taking a step towards your ",
+            "variable": "step_702",
+            "data_type": "any"
+          },
+          {
+            "title": "Let us generate your QR Code first",
+            "variable": "step_709",
+            "data_type": "any"
+          },
+          {
+            "title": "Do you wish to proceed?",
+            "variable": "step_813",
+            "data_type": "any"
+          },
+          {
+            "title": "Well, we will assign a unique code to each partner. Whenever one",
+            "variable": "step_877",
+            "data_type": "any"
+          }
+        ],
+        "next_action": "action_4439",
+        "topic_switch": {
+          "allowed_from": true,
+          "allowed_into": true
+        },
+        "disambiguation_opt_out": false
+      },
+      {
+        "steps": [
+          {
+            "step": "step_341",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "Hi there!! I am EaseBot."
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                },
+                {
+                  "options": [
+                    {
+                      "label": "Hey!",
+                      "value": {
+                        "input": {
+                          "text": "Hey!"
+                        }
+                      }
+                    }
+                  ],
+                  "response_type": "option",
+                  "repeat_on_reprompt": true
+                }
+              ]
+            },
+            "handlers": [
+              {
+                "type": "not_found",
+                "title": "validation_not_found_handler",
+                "output": {
+                  "generic": [
+                    {
+                      "values": [
+                        {
+                          "text": "I didn't catch that. Select a valid option:"
+                        }
+                      ],
+                      "response_type": "text"
+                    }
+                  ]
+                },
+                "handler": "validation_not_found_handler",
+                "resolver": {
+                  "type": "prompt_again"
+                },
+                "next_handler": "validation_not_found_max_tries_handler"
+              },
+              {
+                "type": "not_found_max_tries",
+                "title": "validation_not_found_max_tries_handler",
+                "handler": "validation_not_found_max_tries_handler",
+                "resolver": {
+                  "type": "fallback"
+                }
+              }
+            ],
+            "question": {
+              "entity": "entity_25003",
+              "max_tries": 3
+            },
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_341",
+            "next_step": "step_976"
+          },
+          {
+            "step": "step_442",
+            "handlers": [],
+            "resolver": {
+              "type": "invoke_another_action",
+              "invoke_action": {
+                "action": "action_16613",
+                "parameters": null,
+                "result_variable": "step_442_result_1"
+              }
+            },
+            "variable": "step_442",
+            "condition": {
+              "eq": [
+                {
+                  "variable": "step_447"
+                },
+                {
+                  "value": "Track HIV Risk",
+                  "from_entity": "entity_47594"
+                }
+              ]
+            },
+            "next_step": "step_911"
+          },
+          {
+            "step": "step_447",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "What do you want to get started with?"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                },
+                {
+                  "options": [
+                    {
+                      "label": "Track HIV Risk",
+                      "value": {
+                        "input": {
+                          "text": "Track HIV Risk"
+                        }
+                      }
+                    },
+                    {
+                      "label": "Buy Online",
+                      "value": {
+                        "input": {
+                          "text": "Buy Online"
+                        }
+                      }
+                    },
+                    {
+                      "label": "Scan Partner's QR Code",
+                      "value": {
+                        "input": {
+                          "text": "Scan Partner's QR Code"
+                        }
+                      }
+                    },
+                    {
+                      "label": "Learn more about STDs",
+                      "value": {
+                        "input": {
+                          "text": "Learn more about STDs"
+                        }
+                      }
+                    }
+                  ],
+                  "response_type": "option",
+                  "repeat_on_reprompt": true
+                }
+              ]
+            },
+            "handlers": [
+              {
+                "type": "not_found",
+                "title": "validation_not_found_handler",
+                "output": {
+                  "generic": [
+                    {
+                      "values": [
+                        {
+                          "text": "I didn't catch that. Select a valid option:"
+                        }
+                      ],
+                      "response_type": "text"
+                    }
+                  ]
+                },
+                "handler": "validation_not_found_handler",
+                "resolver": {
+                  "type": "prompt_again"
+                },
+                "next_handler": "validation_not_found_max_tries_handler"
+              },
+              {
+                "type": "not_found_max_tries",
+                "title": "validation_not_found_max_tries_handler",
+                "handler": "validation_not_found_max_tries_handler",
+                "resolver": {
+                  "type": "fallback"
+                }
+              }
+            ],
+            "question": {
+              "entity": "entity_47594",
+              "max_tries": 3
+            },
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_447",
+            "next_step": "step_442"
+          },
+          {
+            "step": "step_911",
+            "handlers": [],
+            "resolver": {
+              "type": "invoke_another_action",
+              "invoke_action": {
+                "action": "action_4439",
+                "parameters": null,
+                "result_variable": "step_911_result_1"
+              }
+            },
+            "variable": "step_911",
+            "condition": {
+              "eq": [
+                {
+                  "variable": "step_447"
+                },
+                {
+                  "value": "Buy Online",
+                  "from_entity": "entity_47594"
+                }
+              ]
+            },
+            "next_step": "step_974"
+          },
+          {
+            "step": "step_974",
+            "handlers": [],
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_974",
+            "condition": {
+              "eq": [
+                {
+                  "variable": "step_447"
+                },
+                {
+                  "value": "Scan Partner's QR Code",
+                  "from_entity": "entity_47594"
+                }
+              ]
+            }
+          },
+          {
+            "step": "step_976",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "I am trained to help you track STD risk from your partner, calculate your HIV Risk, connect you with helpline, teach you about Coital and Reproductive Health and help you buy essentials like Condoms, HIVST kit and pads online."
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                },
+                {
+                  "options": [
+                    {
+                      "label": "I see",
+                      "value": {
+                        "input": {
+                          "text": "I see"
+                        }
+                      }
+                    },
+                    {
+                      "label": "Impressive",
+                      "value": {
+                        "input": {
+                          "text": "Impressive"
+                        }
+                      }
+                    },
+                    {
+                      "label": "Awww!! I needed someone for that",
+                      "value": {
+                        "input": {
+                          "text": "Awww!! I needed someone for that"
+                        }
+                      }
+                    }
+                  ],
+                  "response_type": "option",
+                  "repeat_on_reprompt": true
+                }
+              ]
+            },
+            "handlers": [
+              {
+                "type": "not_found",
+                "title": "validation_not_found_handler",
+                "output": {
+                  "generic": [
+                    {
+                      "values": [
+                        {
+                          "text": "I didn't catch that. Select a valid option:"
+                        }
+                      ],
+                      "response_type": "text"
+                    }
+                  ]
+                },
+                "handler": "validation_not_found_handler",
+                "resolver": {
+                  "type": "prompt_again"
+                },
+                "next_handler": "validation_not_found_max_tries_handler"
+              },
+              {
+                "type": "not_found_max_tries",
+                "title": "validation_not_found_max_tries_handler",
+                "handler": "validation_not_found_max_tries_handler",
+                "resolver": {
+                  "type": "fallback"
+                }
+              }
+            ],
+            "question": {
+              "entity": "entity_13504",
+              "max_tries": 3
+            },
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_976",
+            "next_step": "step_447"
+          }
+        ],
+        "title": "Greetings",
+        "action": "action_18210",
+        "handlers": [],
+        "condition": {
+          "intent": "action_18210_intent_34241"
+        },
+        "variables": [
+          {
+            "title": "Hi there!! I am EaseBot.",
+            "variable": "step_341",
+            "data_type": "any"
+          },
+          {
+            "title": "No response",
+            "variable": "step_442",
+            "data_type": "any"
+          },
+          {
+            "variable": "step_442_result_1",
+            "data_type": "any"
+          },
+          {
+            "title": "What do you want to get started with?",
+            "variable": "step_447",
+            "data_type": "any"
+          },
+          {
+            "variable": "step_799_result_1",
+            "data_type": "any"
+          },
+          {
+            "title": "No response",
+            "variable": "step_911",
+            "data_type": "any"
+          },
+          {
+            "variable": "step_911_result_1",
+            "data_type": "any"
+          },
+          {
+            "title": "No response",
+            "variable": "step_974",
+            "data_type": "any"
+          },
+          {
+            "title": "I am trained to help you track STD risk from your partner, calcu",
+            "variable": "step_976",
+            "data_type": "any"
+          }
+        ],
+        "next_action": "action_42438",
+        "topic_switch": {
+          "allowed_from": true,
+          "allowed_into": true
+        },
+        "disambiguation_opt_out": false
+      },
+      {
+        "steps": [
+          {
+            "step": "step_178",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "Would you like to know about more risk factors for HIV?"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                },
+                {
+                  "options": [
+                    {
+                      "label": "Yeah",
+                      "value": {
+                        "input": {
+                          "text": "Yeah"
+                        }
+                      }
+                    },
+                    {
+                      "label": "No",
+                      "value": {
+                        "input": {
+                          "text": "No"
+                        }
+                      }
+                    }
+                  ],
+                  "response_type": "option",
+                  "repeat_on_reprompt": true
+                }
+              ]
+            },
+            "handlers": [
+              {
+                "type": "not_found",
+                "title": "validation_not_found_handler",
+                "output": {
+                  "generic": [
+                    {
+                      "values": [
+                        {
+                          "text": "I didn't catch that. Select a valid option:"
+                        }
+                      ],
+                      "response_type": "text"
+                    }
+                  ]
+                },
+                "handler": "validation_not_found_handler",
+                "resolver": {
+                  "type": "prompt_again"
+                },
+                "next_handler": "validation_not_found_max_tries_handler"
+              },
+              {
+                "type": "not_found_max_tries",
+                "title": "validation_not_found_max_tries_handler",
+                "handler": "validation_not_found_max_tries_handler",
+                "resolver": {
+                  "type": "fallback"
+                }
+              }
+            ],
+            "question": {
+              "entity": "entity_44967",
+              "max_tries": 3
+            },
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_178",
+            "condition": {
+              "exists": {
+                "variable": "step_502"
+              }
+            },
+            "next_step": "step_732"
+          },
+          {
+            "step": "step_197",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "Suppose, the person's partner had sex with someone who is either HIV positive or is at a high risk of getting HIV, then, the person has a risk of getting  it as well."
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                },
+                {
+                  "options": [
+                    {
+                      "label": "What about someone with multiple partners then?",
+                      "value": {
+                        "input": {
+                          "text": "What about someone with multiple partners then?"
+                        }
+                      }
+                    },
+                    {
+                      "label": "I see",
+                      "value": {
+                        "input": {
+                          "text": "I see"
+                        }
+                      }
+                    }
+                  ],
+                  "response_type": "option",
+                  "repeat_on_reprompt": true
+                }
+              ]
+            },
+            "handlers": [
+              {
+                "type": "not_found",
+                "title": "validation_not_found_handler",
+                "output": {
+                  "generic": [
+                    {
+                      "values": [
+                        {
+                          "text": "I didn't catch that. Select a valid option:"
+                        }
+                      ],
+                      "response_type": "text"
+                    }
+                  ]
+                },
+                "handler": "validation_not_found_handler",
+                "resolver": {
+                  "type": "prompt_again"
+                },
+                "next_handler": "validation_not_found_max_tries_handler"
+              },
+              {
+                "type": "not_found_max_tries",
+                "title": "validation_not_found_max_tries_handler",
+                "handler": "validation_not_found_max_tries_handler",
+                "resolver": {
+                  "type": "fallback"
+                }
+              }
+            ],
+            "question": {
+              "entity": "entity_40323",
+              "max_tries": 3
+            },
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_197",
+            "next_step": "step_973"
+          },
+          {
+            "step": "step_282",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "Before we start which of the following do you think can be exposed to HIV ?"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                },
+                {
+                  "options": [
+                    {
+                      "label": "Sex with one partner",
+                      "value": {
+                        "input": {
+                          "text": "Sex with one partner"
+                        }
+                      }
+                    },
+                    {
+                      "label": "Sex with multiple partners",
+                      "value": {
+                        "input": {
+                          "text": "Sex with multiple partners"
+                        }
+                      }
+                    }
+                  ],
+                  "response_type": "option",
+                  "repeat_on_reprompt": true
+                }
+              ]
+            },
+            "handlers": [
+              {
+                "type": "not_found",
+                "title": "validation_not_found_handler",
+                "output": {
+                  "generic": [
+                    {
+                      "values": [
+                        {
+                          "text": "I didn't catch that. Select a valid option:"
+                        }
+                      ],
+                      "response_type": "text"
+                    }
+                  ]
+                },
+                "handler": "validation_not_found_handler",
+                "resolver": {
+                  "type": "prompt_again"
+                },
+                "next_handler": "validation_not_found_max_tries_handler"
+              },
+              {
+                "type": "not_found_max_tries",
+                "title": "validation_not_found_max_tries_handler",
+                "handler": "validation_not_found_max_tries_handler",
+                "resolver": {
+                  "type": "fallback"
+                }
+              }
+            ],
+            "question": {
+              "entity": "entity_41359",
+              "max_tries": 3
+            },
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_282",
+            "next_step": "step_347"
+          },
+          {
+            "step": "step_347",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "Regardless of the choice dear, both have a potential let' see how"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                },
+                {
+                  "options": [
+                    {
+                      "label": "Oh!!",
+                      "value": {
+                        "input": {
+                          "text": "Oh!!"
+                        }
+                      }
+                    },
+                    {
+                      "label": "Is that so?",
+                      "value": {
+                        "input": {
+                          "text": "Is that so?"
+                        }
+                      }
+                    }
+                  ],
+                  "response_type": "option",
+                  "repeat_on_reprompt": true
+                }
+              ]
+            },
+            "handlers": [
+              {
+                "type": "not_found",
+                "title": "validation_not_found_handler",
+                "output": {
+                  "generic": [
+                    {
+                      "values": [
+                        {
+                          "text": "I didn't catch that. Select a valid option:"
+                        }
+                      ],
+                      "response_type": "text"
+                    }
+                  ]
+                },
+                "handler": "validation_not_found_handler",
+                "resolver": {
+                  "type": "prompt_again"
+                },
+                "next_handler": "validation_not_found_max_tries_handler"
+              },
+              {
+                "type": "not_found_max_tries",
+                "title": "validation_not_found_max_tries_handler",
+                "handler": "validation_not_found_max_tries_handler",
+                "resolver": {
+                  "type": "fallback"
+                }
+              }
+            ],
+            "question": {
+              "entity": "entity_4891",
+              "max_tries": 3
+            },
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_347",
+            "condition": {
+              "exists": {
+                "variable": "step_282"
+              }
+            },
+            "next_step": "step_465"
+          },
+          {
+            "step": "step_465",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "Let's take example of a person who has sex with one partner."
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_465",
+            "condition": {
+              "exists": {
+                "variable": "step_347"
+              }
+            },
+            "next_step": "step_197"
+          },
+          {
+            "step": "step_502",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "So, irrespective of number of partners a person who is having sex with a partner whose HIV risk is unknown, one must always think of safe seuxal practices."
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                },
+                {
+                  "options": [
+                    {
+                      "label": "Understood",
+                      "value": {
+                        "input": {
+                          "text": "Understood"
+                        }
+                      }
+                    },
+                    {
+                      "label": "Thanks for letting me know",
+                      "value": {
+                        "input": {
+                          "text": "Thanks for letting me know"
+                        }
+                      }
+                    }
+                  ],
+                  "response_type": "option",
+                  "repeat_on_reprompt": true
+                }
+              ]
+            },
+            "handlers": [
+              {
+                "type": "not_found",
+                "title": "validation_not_found_handler",
+                "output": {
+                  "generic": [
+                    {
+                      "values": [
+                        {
+                          "text": "I didn't catch that. Select a valid option:"
+                        }
+                      ],
+                      "response_type": "text"
+                    }
+                  ]
+                },
+                "handler": "validation_not_found_handler",
+                "resolver": {
+                  "type": "prompt_again"
+                },
+                "next_handler": "validation_not_found_max_tries_handler"
+              },
+              {
+                "type": "not_found_max_tries",
+                "title": "validation_not_found_max_tries_handler",
+                "handler": "validation_not_found_max_tries_handler",
+                "resolver": {
+                  "type": "fallback"
+                }
+              }
+            ],
+            "question": {
+              "entity": "entity_32407",
+              "max_tries": 3
+            },
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_502",
+            "condition": {
+              "exists": {
+                "variable": "step_973"
+              }
+            },
+            "next_step": "step_178"
+          },
+          {
+            "step": "step_732",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "Which one would you like to know more about?"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                },
+                {
+                  "options": [
+                    {
+                      "label": "Injectables",
+                      "value": {
+                        "input": {
+                          "text": "Injectables"
+                        }
+                      }
+                    },
+                    {
+                      "label": "Unsafe sex",
+                      "value": {
+                        "input": {
+                          "text": "Unsafe sex"
+                        }
+                      }
+                    },
+                    {
+                      "label": "Receptive Anal Sex",
+                      "value": {
+                        "input": {
+                          "text": "Receptive Anal Sex"
+                        }
+                      }
+                    }
+                  ],
+                  "response_type": "option",
+                  "repeat_on_reprompt": true
+                }
+              ]
+            },
+            "handlers": [
+              {
+                "type": "not_found",
+                "title": "validation_not_found_handler",
+                "output": {
+                  "generic": [
+                    {
+                      "values": [
+                        {
+                          "text": "I didn't catch that. Select a valid option:"
+                        }
+                      ],
+                      "response_type": "text"
+                    }
+                  ]
+                },
+                "handler": "validation_not_found_handler",
+                "resolver": {
+                  "type": "prompt_again"
+                },
+                "next_handler": "validation_not_found_max_tries_handler"
+              },
+              {
+                "type": "not_found_max_tries",
+                "title": "validation_not_found_max_tries_handler",
+                "handler": "validation_not_found_max_tries_handler",
+                "resolver": {
+                  "type": "fallback"
+                }
+              }
+            ],
+            "question": {
+              "entity": "entity_41870",
+              "max_tries": 3
+            },
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_732",
+            "condition": {
+              "eq": [
+                {
+                  "variable": "step_178"
+                },
+                {
+                  "value": "Yeah",
+                  "from_entity": "entity_44967"
+                }
+              ]
+            }
+          },
+          {
+            "step": "step_973",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "Along the same lines, someone who has had sex with multiple partners doesn't know about previous risk of HIV or exposure to virus of their partner or partner of partners."
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                },
+                {
+                  "options": [
+                    {
+                      "label": "Makes sense",
+                      "value": {
+                        "input": {
+                          "text": "Makes sense"
+                        }
+                      }
+                    }
+                  ],
+                  "response_type": "option",
+                  "repeat_on_reprompt": true
+                }
+              ]
+            },
+            "context": {
+              "variables": []
+            },
+            "handlers": [
+              {
+                "type": "not_found",
+                "title": "validation_not_found_handler",
+                "output": {
+                  "generic": [
+                    {
+                      "values": [
+                        {
+                          "text": "I didn't catch that. Select a valid option:"
+                        }
+                      ],
+                      "response_type": "text"
+                    }
+                  ]
+                },
+                "handler": "validation_not_found_handler",
+                "resolver": {
+                  "type": "prompt_again"
+                },
+                "next_handler": "validation_not_found_max_tries_handler"
+              },
+              {
+                "type": "not_found_max_tries",
+                "title": "validation_not_found_max_tries_handler",
+                "handler": "validation_not_found_max_tries_handler",
+                "resolver": {
+                  "type": "fallback"
+                }
+              }
+            ],
+            "question": {
+              "entity": "entity_20447",
+              "max_tries": 3
+            },
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_973",
+            "condition": {
+              "exists": {
+                "variable": "step_197"
+              }
+            },
+            "next_step": "step_502"
+          }
+        ],
+        "title": "PrEP: Partner History",
+        "action": "action_18999",
+        "handlers": [],
+        "condition": {
+          "intent": "action_18999_intent_27619"
+        },
+        "variables": [
+          {
+            "title": "Would you like to know about more risk factors for HIV?",
+            "variable": "step_178",
+            "data_type": "any"
+          },
+          {
+            "title": "Suppose, the person's partner had sex with someone who is either",
+            "variable": "step_197",
+            "data_type": "any"
+          },
+          {
+            "title": "Before we start which of the following do you think can be expos",
+            "variable": "step_282",
+            "data_type": "any"
+          },
+          {
+            "title": "Regardless of the choice dear, both have a potential let' see ho",
+            "variable": "step_347",
+            "data_type": "any"
+          },
+          {
+            "title": "Let's take example of a person who has sex with one partner.",
+            "variable": "step_465",
+            "data_type": "any"
+          },
+          {
+            "title": "So, irrespective of number of partners a person who is having se",
+            "variable": "step_502",
+            "data_type": "any"
+          },
+          {
+            "title": "Which one would you like to know more about?",
+            "variable": "step_732",
+            "data_type": "any"
+          },
+          {
+            "title": "Along the same lines, someone who has had sex with multiple part",
+            "variable": "step_973",
+            "data_type": "any"
+          }
+        ],
+        "next_action": "action_42654",
+        "topic_switch": {
+          "allowed_from": true,
+          "allowed_into": true
+        },
+        "disambiguation_opt_out": false
+      },
+      {
+        "steps": [
+          {
+            "step": "step_666",
+            "handlers": [],
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_666"
+          }
+        ],
+        "title": "Self-Testing Module",
+        "action": "action_42438",
+        "handlers": [],
+        "condition": {
+          "intent": "action_42438_intent_8273"
+        },
+        "variables": [
+          {
+            "title": "No response",
+            "variable": "step_666",
+            "data_type": "any"
+          }
+        ],
+        "next_action": "action_18999",
+        "topic_switch": {
+          "allowed_from": true,
+          "allowed_into": true
+        },
+        "disambiguation_opt_out": false
+      },
+      {
+        "steps": [
+          {
+            "step": "step_191",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "Let's say if someone has sex with an  positive partner, now the risk of getting  from the partner depends on the viral load of the person. Viral load is a count of  RNA or nuclear material in 1 ml of blood."
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                },
+                {
+                  "options": [
+                    {
+                      "label": "Ahh, I see",
+                      "value": {
+                        "input": {
+                          "text": "Ahh, I see"
+                        }
+                      }
+                    },
+                    {
+                      "label": "How so?",
+                      "value": {
+                        "input": {
+                          "text": "How so?"
+                        }
+                      }
+                    }
+                  ],
+                  "response_type": "option",
+                  "repeat_on_reprompt": true
+                }
+              ]
+            },
+            "handlers": [
+              {
+                "type": "not_found",
+                "title": "validation_not_found_handler",
+                "output": {
+                  "generic": [
+                    {
+                      "values": [
+                        {
+                          "text": "I didn't catch that. Select a valid option:"
+                        }
+                      ],
+                      "response_type": "text"
+                    }
+                  ]
+                },
+                "handler": "validation_not_found_handler",
+                "resolver": {
+                  "type": "prompt_again"
+                },
+                "next_handler": "validation_not_found_max_tries_handler"
+              },
+              {
+                "type": "not_found_max_tries",
+                "title": "validation_not_found_max_tries_handler",
+                "handler": "validation_not_found_max_tries_handler",
+                "resolver": {
+                  "type": "fallback"
+                }
+              }
+            ],
+            "question": {
+              "entity": "entity_4657",
+              "max_tries": 3
+            },
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_191",
+            "next_step": "step_531"
+          },
+          {
+            "step": "step_220",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "So, when do you think a person cannot get from a positive partner?"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                },
+                {
+                  "options": [
+                    {
+                      "label": "Viral load is detectable",
+                      "value": {
+                        "input": {
+                          "text": "Viral load is detectable"
+                        }
+                      }
+                    },
+                    {
+                      "label": "Viral load is undetectable",
+                      "value": {
+                        "input": {
+                          "text": "Viral load is undetectable"
+                        }
+                      }
+                    },
+                    {
+                      "label": "Viral load is not known",
+                      "value": {
+                        "input": {
+                          "text": "Viral load is not known"
+                        }
+                      }
+                    }
+                  ],
+                  "response_type": "option",
+                  "repeat_on_reprompt": true
+                }
+              ]
+            },
+            "handlers": [
+              {
+                "type": "not_found",
+                "title": "validation_not_found_handler",
+                "output": {
+                  "generic": [
+                    {
+                      "values": [
+                        {
+                          "text": "I didn't catch that. Select a valid option:"
+                        }
+                      ],
+                      "response_type": "text"
+                    }
+                  ]
+                },
+                "handler": "validation_not_found_handler",
+                "resolver": {
+                  "type": "prompt_again"
+                },
+                "next_handler": "validation_not_found_max_tries_handler"
+              },
+              {
+                "type": "not_found_max_tries",
+                "title": "validation_not_found_max_tries_handler",
+                "handler": "validation_not_found_max_tries_handler",
+                "resolver": {
+                  "type": "fallback"
+                }
+              }
+            ],
+            "question": {
+              "entity": "entity_29732",
+              "max_tries": 3
+            },
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_220",
+            "next_step": "step_470"
+          },
+          {
+            "step": "step_403",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "I am very excited to tell you about  Pre-exposure Prophylaxis.  Want to get started?"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                },
+                {
+                  "options": [
+                    {
+                      "label": "Yes, let's do this",
+                      "value": {
+                        "input": {
+                          "text": "Yes, let's do this"
+                        }
+                      }
+                    },
+                    {
+                      "label": "May be later",
+                      "value": {
+                        "input": {
+                          "text": "May be later"
+                        }
+                      }
+                    }
+                  ],
+                  "response_type": "option",
+                  "repeat_on_reprompt": true
+                }
+              ]
+            },
+            "handlers": [
+              {
+                "type": "not_found",
+                "title": "validation_not_found_handler",
+                "output": {
+                  "generic": [
+                    {
+                      "values": [
+                        {
+                          "text": "I didn't catch that. Select a valid option:"
+                        }
+                      ],
+                      "response_type": "text"
+                    }
+                  ]
+                },
+                "handler": "validation_not_found_handler",
+                "resolver": {
+                  "type": "prompt_again"
+                },
+                "next_handler": "validation_not_found_max_tries_handler"
+              },
+              {
+                "type": "not_found_max_tries",
+                "title": "validation_not_found_max_tries_handler",
+                "handler": "validation_not_found_max_tries_handler",
+                "resolver": {
+                  "type": "fallback"
+                }
+              }
+            ],
+            "question": {
+              "entity": "entity_43936",
+              "max_tries": 3
+            },
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_403",
+            "next_step": "step_948"
+          },
+          {
+            "step": "step_470",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "Kudos!! The right answer is indeed, viral load is undetectable. Undetectable = Untransmittable. However, when  positive partner has detectable or unknown viral load, one should take the PrEP"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_470",
+            "condition": {
+              "eq": [
+                {
+                  "variable": "step_220"
+                },
+                {
+                  "value": "Viral load is undetectable",
+                  "from_entity": "entity_29732"
+                }
+              ]
+            },
+            "next_step": "step_739"
+          },
+          {
+            "step": "step_501",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "Always remember U=U, Undetectable = Untransmittable. However, when  positive partner has detectable or unknown viral load, one should take the PrEP"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_501",
+            "condition": {
+              "exists": {
+                "variable": "step_220"
+              }
+            }
+          },
+          {
+            "step": "step_531",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "Viral load increases over a period of time in untreated patients. Thanks to highly effective antiretroviral therapy or ART against , people who regularly take it can even have undetectable viral load."
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_531",
+            "condition": {
+              "exists": {
+                "variable": "step_191"
+              }
+            },
+            "next_step": "step_220"
+          },
+          {
+            "step": "step_709",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "Now, you may ask,  \"EaseBot how will we know who should get prophylaxis?\" Well, let me walk you through that...."
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_709",
+            "condition": {
+              "exists": {
+                "variable": "step_939"
+              }
+            },
+            "next_step": "step_191"
+          },
+          {
+            "step": "step_739",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "Umm.. \nActually, the right answer is viral load is undetectable"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_739",
+            "condition": {
+              "and": [
+                {
+                  "eq": [
+                    {
+                      "variable": "step_220"
+                    },
+                    {
+                      "value": "Viral load is detectable",
+                      "from_entity": "entity_29732"
+                    }
+                  ]
+                },
+                {
+                  "eq": [
+                    {
+                      "variable": "step_220"
+                    },
+                    {
+                      "value": "Viral load is not known",
+                      "from_entity": "entity_29732"
+                    }
+                  ]
+                }
+              ]
+            },
+            "next_step": "step_501"
+          },
+          {
+            "step": "step_747",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "Oopsie!! We can't prevent transmission to a person who has already got virus and has tested positive. \nIn a positive person, we treat HIV with ani-retrovirals before it becomes AIDS."
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_747",
+            "condition": {
+              "eq": [
+                {
+                  "variable": "step_939"
+                },
+                {
+                  "value": "HIV negative person",
+                  "from_entity": "entity_20218"
+                }
+              ]
+            },
+            "next_step": "step_709"
+          },
+          {
+            "step": "step_888",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "Yes, an HIV negative person should go for the prophylaxis."
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_888",
+            "condition": {
+              "eq": [
+                {
+                  "variable": "step_939"
+                },
+                {
+                  "value": "HIV positive person",
+                  "from_entity": "entity_20218"
+                }
+              ]
+            },
+            "next_step": "step_747"
+          },
+          {
+            "step": "step_939",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "So, who do you think needs a prophylaxis?"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                },
+                {
+                  "options": [
+                    {
+                      "label": "HIV positive person",
+                      "value": {
+                        "input": {
+                          "text": "HIV positive person"
+                        }
+                      }
+                    },
+                    {
+                      "label": "HIV negative person",
+                      "value": {
+                        "input": {
+                          "text": "HIV negative person"
+                        }
+                      }
+                    }
+                  ],
+                  "response_type": "option",
+                  "repeat_on_reprompt": true
+                }
+              ]
+            },
+            "handlers": [
+              {
+                "type": "not_found",
+                "title": "validation_not_found_handler",
+                "output": {
+                  "generic": [
+                    {
+                      "values": [
+                        {
+                          "text": "I didn't catch that. Select a valid option:"
+                        }
+                      ],
+                      "response_type": "text"
+                    }
+                  ]
+                },
+                "handler": "validation_not_found_handler",
+                "resolver": {
+                  "type": "prompt_again"
+                },
+                "next_handler": "validation_not_found_max_tries_handler"
+              },
+              {
+                "type": "not_found_max_tries",
+                "title": "validation_not_found_max_tries_handler",
+                "handler": "validation_not_found_max_tries_handler",
+                "resolver": {
+                  "type": "fallback"
+                }
+              }
+            ],
+            "question": {
+              "entity": "entity_20218",
+              "max_tries": 3
+            },
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_939",
+            "next_step": "step_888"
+          },
+          {
+            "step": "step_948",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "We will first start by understanding the word prophylaxis.\nIt is the treatment given to prevent a disease from happening."
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_948",
+            "condition": {
+              "eq": [
+                {
+                  "variable": "step_403"
+                },
+                {
+                  "value": "Yes, let's do this",
+                  "from_entity": "entity_43936"
+                }
+              ]
+            },
+            "next_step": "step_939"
+          }
+        ],
+        "title": "PrEP Intro",
+        "action": "action_42654",
+        "handlers": [],
+        "condition": {
+          "intent": "action_42654_intent_25572"
+        },
+        "variables": [
+          {
+            "title": "Let's say if someone has sex with an positive partner, now the r",
+            "variable": "step_191",
+            "data_type": "any"
+          },
+          {
+            "title": "So, when do you think a person cannot get from a positive partne",
+            "variable": "step_220",
+            "data_type": "any"
+          },
+          {
+            "title": "I am very excited to tell you about Pre-exposure Prophylaxis. Wa",
+            "variable": "step_403",
+            "data_type": "any"
+          },
+          {
+            "title": "Kudos!! The right answer is indeed, viral load is undetectable. ",
+            "variable": "step_470",
+            "data_type": "any"
+          },
+          {
+            "title": "Always remember U=U, Undetectable = Untransmittable. However, wh",
+            "variable": "step_501",
+            "data_type": "any"
+          },
+          {
+            "title": "Viral load increases over a period of time in untreated patients",
+            "variable": "step_531",
+            "data_type": "any"
+          },
+          {
+            "title": "Now, you may ask, \"EaseBot how will we know who should get proph",
+            "variable": "step_709",
+            "data_type": "any"
+          },
+          {
+            "title": "Umm.. Actually, the right answer is viral load is undetectable",
+            "variable": "step_739",
+            "data_type": "any"
+          },
+          {
+            "title": "Oopsie!! We can't prevent transmission to a person who has alrea",
+            "variable": "step_747",
+            "data_type": "any"
+          },
+          {
+            "title": "Yes, an HIV negative person should go for the prophylaxis.",
+            "variable": "step_888",
+            "data_type": "any"
+          },
+          {
+            "title": "So, who do you think needs a prophylaxis?",
+            "variable": "step_939",
+            "data_type": "any"
+          },
+          {
+            "title": "We will first start by understanding the word prophylaxis. It is",
+            "variable": "step_948",
+            "data_type": "any"
+          }
+        ],
+        "next_action": "action_17247",
+        "topic_switch": {
+          "allowed_from": true,
+          "allowed_into": true
+        },
+        "disambiguation_opt_out": false
+      },
+      {
+        "steps": [
+          {
+            "step": "step_134",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "I guess you would like to order essentials online.\nHave I picked that up correctly?"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                },
+                {
+                  "options": [
+                    {
+                      "label": "Yes, indeed",
+                      "value": {
+                        "input": {
+                          "text": "Yes, indeed"
+                        }
+                      }
+                    },
+                    {
+                      "label": "No, I don't want to",
+                      "value": {
+                        "input": {
+                          "text": "No, I don't want to"
+                        }
+                      }
+                    }
+                  ],
+                  "response_type": "option",
+                  "repeat_on_reprompt": true
+                }
+              ]
+            },
+            "handlers": [
+              {
+                "type": "not_found",
+                "title": "validation_not_found_handler",
+                "output": {
+                  "generic": [
+                    {
+                      "values": [
+                        {
+                          "text": "I didn't catch that. Select a valid option:"
+                        }
+                      ],
+                      "response_type": "text"
+                    }
+                  ]
+                },
+                "handler": "validation_not_found_handler",
+                "resolver": {
+                  "type": "prompt_again"
+                },
+                "next_handler": "validation_not_found_max_tries_handler"
+              },
+              {
+                "type": "not_found_max_tries",
+                "title": "validation_not_found_max_tries_handler",
+                "handler": "validation_not_found_max_tries_handler",
+                "resolver": {
+                  "type": "fallback"
+                }
+              }
+            ],
+            "question": {
+              "entity": "entity_1805",
+              "max_tries": 3
+            },
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_134",
+            "next_step": "step_809"
+          },
+          {
+            "step": "step_230",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "Wait, while I search nearest stores for you.."
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_230",
+            "next_step": "step_500"
+          },
+          {
+            "step": "step_500",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "Opening Dunzo App"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_500",
+            "next_step": "step_748"
+          },
+          {
+            "step": "step_748",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "Oh snap!! Is there anything I can assist you with?"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_748",
+            "condition": {
+              "eq": [
+                {
+                  "variable": "step_134"
+                },
+                {
+                  "value": "No, I don't want to",
+                  "from_entity": "entity_1805"
+                }
+              ]
+            }
+          },
+          {
+            "step": "step_809",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "I am trained to automatically find your find what you need on Dunzo. Which of the following would you like to buy online?"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                },
+                {
+                  "options": [
+                    {
+                      "label": "Condoms",
+                      "value": {
+                        "input": {
+                          "text": "Condoms"
+                        }
+                      }
+                    },
+                    {
+                      "label": "Meftal Spas",
+                      "value": {
+                        "input": {
+                          "text": "Meftal Spas"
+                        }
+                      }
+                    },
+                    {
+                      "label": "Pads",
+                      "value": {
+                        "input": {
+                          "text": "Pads"
+                        }
+                      }
+                    },
+                    {
+                      "label": "HIV Self Test kit",
+                      "value": {
+                        "input": {
+                          "text": "HIV Self Test kit"
+                        }
+                      }
+                    },
+                    {
+                      "label": "72 hour pill",
+                      "value": {
+                        "input": {
+                          "text": "72 hour pill"
+                        }
+                      }
+                    },
+                    {
+                      "label": "Pregnancy Test-kit",
+                      "value": {
+                        "input": {
+                          "text": "Pregnancy Test-kit"
+                        }
+                      }
+                    },
+                    {
+                      "label": "Iron Tablets",
+                      "value": {
+                        "input": {
+                          "text": "Iron Tablets"
+                        }
+                      }
+                    },
+                    {
+                      "label": "Folic Acid Tablets",
+                      "value": {
+                        "input": {
+                          "text": "Folic Acid Tablets"
+                        }
+                      }
+                    },
+                    {
+                      "label": "Calcium Tablets",
+                      "value": {
+                        "input": {
+                          "text": "Calcium Tablets"
+                        }
+                      }
+                    }
+                  ],
+                  "response_type": "option",
+                  "repeat_on_reprompt": true
+                }
+              ]
+            },
+            "handlers": [
+              {
+                "type": "not_found",
+                "title": "validation_not_found_handler",
+                "output": {
+                  "generic": [
+                    {
+                      "values": [
+                        {
+                          "text": "I didn't catch that. Select a valid option:"
+                        }
+                      ],
+                      "response_type": "text"
+                    }
+                  ]
+                },
+                "handler": "validation_not_found_handler",
+                "resolver": {
+                  "type": "prompt_again"
+                },
+                "next_handler": "validation_not_found_max_tries_handler"
+              },
+              {
+                "type": "not_found_max_tries",
+                "title": "validation_not_found_max_tries_handler",
+                "handler": "validation_not_found_max_tries_handler",
+                "resolver": {
+                  "type": "fallback"
+                }
+              }
+            ],
+            "question": {
+              "entity": "entity_9774",
+              "max_tries": 3
+            },
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_809",
+            "condition": {
+              "eq": [
+                {
+                  "variable": "step_134"
+                },
+                {
+                  "value": "Yes, indeed",
+                  "from_entity": "entity_1805"
+                }
+              ]
+            },
+            "next_step": "step_230"
+          }
+        ],
+        "title": "Buy Online",
+        "action": "action_4439",
+        "handlers": [],
+        "condition": {
+          "intent": "action_4439_intent_17160"
+        },
+        "variables": [
+          {
+            "title": "I guess you would like to order essentials online. Have I picked",
+            "variable": "step_134",
+            "data_type": "any"
+          },
+          {
+            "title": "Wait, while I search nearest stores for you..",
+            "variable": "step_230",
+            "data_type": "any"
+          },
+          {
+            "title": "Opening Dunzo App",
+            "variable": "step_500",
+            "data_type": "any"
+          },
+          {
+            "title": "Oh snap!! Is there anything I can assist you with?",
+            "variable": "step_748",
+            "data_type": "any"
+          },
+          {
+            "title": "I am trained to automatically find your find what you need on Du",
+            "variable": "step_809",
+            "data_type": "any"
+          }
+        ],
+        "next_action": "action_16613",
+        "topic_switch": {
+          "allowed_from": true,
+          "allowed_into": true
+        },
+        "disambiguation_opt_out": false
+      },
+      {
+        "steps": [
+          {
+            "step": "step_001",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text": "I'm afraid I don't understand. Please rephrase your question."
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "end_action"
+            },
+            "variable": "step_001",
+            "condition": {
+              "lte": [
+                {
+                  "system_variable": "no_action_matches_count"
+                },
+                {
+                  "scalar": 3
+                }
+              ]
+            },
+            "next_step": "step_002"
+          },
+          {
+            "step": "step_002",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text": ""
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "invoke_another_action_and_end",
+              "invoke_action": {
+                "action": "fallback",
+                "parameters": null,
+                "result_variable": "step_002_result_1"
+              }
+            },
+            "variable": "step_002",
+            "condition": {
+              "gt": [
+                {
+                  "system_variable": "no_action_matches_count"
+                },
+                {
+                  "scalar": 3
+                }
+              ]
+            }
+          }
+        ],
+        "title": "No action matches",
+        "action": "anything_else",
+        "handlers": [],
+        "condition": {
+          "expression": "anything_else"
+        },
+        "variables": [
+          {
+            "title": "I am afraid I do not understand what you are asking, please re-p",
+            "variable": "step_001",
+            "data_type": "any"
+          },
+          {
+            "variable": "step_002",
+            "data_type": "any"
+          },
+          {
+            "variable": "step_002_result_1",
+            "data_type": "any"
+          }
+        ],
+        "disambiguation_opt_out": true
+      },
+      {
+        "steps": [
+          {
+            "step": "step_001",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text": "I'm afraid I don't understand. I can connect you to an agent."
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "connect_to_agent",
+              "response": {
+                "transfer_info": {
+                  "target": {}
+                },
+                "agent_available": {
+                  "message": "Let's send you to an available agent."
+                },
+                "agent_unavailable": {
+                  "message": "There are no agents available at this time. When one becomes available, we'll connect you."
+                },
+                "message_to_human_agent": ""
+              }
+            },
+            "variable": "step_001",
+            "condition": {
+              "eq": [
+                {
+                  "system_variable": "fallback_reason"
+                },
+                {
+                  "scalar": "Step validation failed"
+                }
+              ]
+            },
+            "next_step": "step_002"
+          },
+          {
+            "step": "step_002",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text": "Sorry I couldn't assist you. I will connect you to an agent right away."
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "connect_to_agent",
+              "response": {
+                "transfer_info": {
+                  "target": {}
+                },
+                "agent_available": {
+                  "message": "Let's send you to an available agent."
+                },
+                "agent_unavailable": {
+                  "message": "There are no agents available at this time. When one becomes available, we'll connect you."
+                },
+                "message_to_human_agent": ""
+              }
+            },
+            "variable": "step_002",
+            "condition": {
+              "eq": [
+                {
+                  "system_variable": "fallback_reason"
+                },
+                {
+                  "scalar": "Agent requested"
+                }
+              ]
+            },
+            "next_step": "step_003"
+          },
+          {
+            "step": "step_003",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text": "I am afraid I do not understand what you are asking, let me connect you to an agent."
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "connect_to_agent",
+              "response": {
+                "transfer_info": {
+                  "target": {}
+                },
+                "agent_available": {
+                  "message": "Let's send you to an available agent."
+                },
+                "agent_unavailable": {
+                  "message": "There are no agents available at this time. When one becomes available, we'll connect you."
+                },
+                "message_to_human_agent": ""
+              }
+            },
+            "variable": "step_003",
+            "condition": {
+              "eq": [
+                {
+                  "system_variable": "fallback_reason"
+                },
+                {
+                  "scalar": "No action matches"
+                }
+              ]
+            }
+          }
+        ],
+        "title": "Fallback",
+        "action": "fallback",
+        "handlers": [],
+        "condition": {
+          "intent": "fallback_connect_to_agent"
+        },
+        "variables": [
+          {
+            "title": "I'm afraid I don't understand. I can connect you to an agent.",
+            "variable": "step_001",
+            "data_type": "any"
+          },
+          {
+            "title": "Sorry I couldn't assist you. I will connect you to an agent righ",
+            "variable": "step_002",
+            "data_type": "any"
+          },
+          {
+            "title": "I am afraid I do not understand what you are asking, let me conn",
+            "variable": "step_003",
+            "data_type": "any"
+          }
+        ],
+        "next_action": "anything_else",
+        "disambiguation_opt_out": true
+      },
+      {
+        "steps": [
+          {
+            "step": "step_001",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text": "Welcome, how can I assist you?"
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_001"
+          }
+        ],
+        "title": "Greet customer",
+        "action": "welcome",
+        "handlers": [],
+        "condition": {
+          "expression": "welcome"
+        },
+        "variables": [
+          {
+            "variable": "step_001",
+            "data_type": "any"
+          }
+        ],
+        "next_action": "action_18210",
+        "disambiguation_opt_out": true
+      }
+    ],
+    "intents": [
+      {
+        "intent": "action_16613_intent_35234",
+        "examples": [
+          {
+            "text": "Danger"
+          },
+          {
+            "text": "Danger of HIV"
+          },
+          {
+            "text": "HIV Risk"
+          },
+          {
+            "text": "HIV Score"
+          },
+          {
+            "text": "Risk"
+          },
+          {
+            "text": "Score"
+          }
+        ]
+      },
+      {
+        "intent": "action_17247_intent_40983",
+        "examples": [
+          {
+            "text": "I want to track sexual activity"
+          },
+          {
+            "text": "New activity"
+          },
+          {
+            "text": "Partner"
+          },
+          {
+            "text": "QR"
+          },
+          {
+            "text": "Scan"
+          },
+          {
+            "text": "Scan QR code"
+          },
+          {
+            "text": "Sex"
+          },
+          {
+            "text": "Track"
+          },
+          {
+            "text": "Track Partner"
+          },
+          {
+            "text": "Track sexual activity"
+          }
+        ]
+      },
+      {
+        "intent": "action_18210_intent_34241",
+        "examples": [
+          {
+            "text": "Greetings"
+          },
+          {
+            "text": "Hello"
+          },
+          {
+            "text": "Heyya"
+          },
+          {
+            "text": "Hi"
+          },
+          {
+            "text": "Namaste"
+          },
+          {
+            "text": "Wassup"
+          }
+        ]
+      },
+      {
+        "intent": "action_18999_intent_27619",
+        "examples": [
+          {
+            "text": "Partner number"
+          }
+        ]
+      },
+      {
+        "intent": "action_42438_intent_8273",
+        "examples": [
+          {
+            "text": "Self-Testing Module"
+          }
+        ]
+      },
+      {
+        "intent": "action_42654_intent_25572",
+        "examples": [
+          {
+            "text": "Knowledge: PrEP"
+          }
+        ]
+      },
+      {
+        "intent": "action_4439_intent_17160",
+        "examples": [
+          {
+            "text": "Abortion pills"
+          },
+          {
+            "text": "Buy condoms"
+          },
+          {
+            "text": "Buy HIV Self Test Kit"
+          },
+          {
+            "text": "Buy Meftal Spas online"
+          },
+          {
+            "text": "Buy pads"
+          },
+          {
+            "text": "Buy Pregnancy test kits"
+          }
+        ]
+      },
+      {
+        "intent": "fallback_connect_to_agent",
+        "examples": [
+          {
+            "text": "Agent help"
+          },
+          {
+            "text": "Call agent"
+          },
+          {
+            "text": "Can I connect to an agent?"
+          },
+          {
+            "text": "I would like to speak to a human"
+          },
+          {
+            "text": "I would like to speak to someone"
+          }
+        ],
+        "description": "Please transfer me to an agent"
+      }
+    ],
+    "entities": [
+      {
+        "entity": "entity_11602",
+        "values": [
+          {
+            "type": "synonyms",
+            "value": "No, you misunderstood me",
+            "synonyms": []
+          },
+          {
+            "type": "synonyms",
+            "value": "Yes, I would like to ",
+            "synonyms": []
+          }
+        ],
+        "fuzzy_match": true
+      },
+      {
+        "entity": "entity_11668",
+        "values": [
+          {
+            "type": "synonyms",
+            "value": "Connect me to Helpline please!",
+            "synonyms": []
+          },
+          {
+            "type": "synonyms",
+            "value": "Tell me about HIV Self-Testing",
+            "synonyms": []
+          }
+        ],
+        "fuzzy_match": true
+      },
+      {
+        "entity": "entity_13504",
+        "values": [
+          {
+            "type": "synonyms",
+            "value": "Awww!! I needed someone for that",
+            "synonyms": []
+          },
+          {
+            "type": "synonyms",
+            "value": "Impressive",
+            "synonyms": []
+          },
+          {
+            "type": "synonyms",
+            "value": "I see",
+            "synonyms": []
+          }
+        ],
+        "fuzzy_match": true
+      },
+      {
+        "entity": "entity_15117",
+        "values": [
+          {
+            "type": "synonyms",
+            "value": "Sometime, later",
+            "synonyms": []
+          },
+          {
+            "type": "synonyms",
+            "value": "That sounds helpful",
+            "synonyms": []
+          }
+        ],
+        "fuzzy_match": true
+      },
+      {
+        "entity": "entity_17434",
+        "values": [
+          {
+            "type": "synonyms",
+            "value": "Oh! I see",
+            "synonyms": []
+          }
+        ],
+        "fuzzy_match": true
+      },
+      {
+        "entity": "entity_1805",
+        "values": [
+          {
+            "type": "synonyms",
+            "value": "No, I don't want to",
+            "synonyms": []
+          },
+          {
+            "type": "synonyms",
+            "value": "Yes, indeed",
+            "synonyms": [
+              "right!",
+              "Yeah"
+            ]
+          }
+        ],
+        "fuzzy_match": true
+      },
+      {
+        "entity": "entity_19153",
+        "values": [
+          {
+            "type": "synonyms",
+            "value": "Oh! I see",
+            "synonyms": []
+          }
+        ],
+        "fuzzy_match": true
+      },
+      {
+        "entity": "entity_19624",
+        "values": [
+          {
+            "type": "synonyms",
+            "value": "Alright!",
+            "synonyms": []
+          },
+          {
+            "type": "synonyms",
+            "value": "Why?",
+            "synonyms": []
+          }
+        ],
+        "fuzzy_match": true
+      },
+      {
+        "entity": "entity_20218",
+        "values": [
+          {
+            "type": "synonyms",
+            "value": "HIV negative person",
+            "synonyms": []
+          },
+          {
+            "type": "synonyms",
+            "value": "HIV positive person",
+            "synonyms": []
+          }
+        ],
+        "fuzzy_match": true
+      },
+      {
+        "entity": "entity_20447",
+        "values": [
+          {
+            "type": "synonyms",
+            "value": "Makes sense",
+            "synonyms": []
+          }
+        ],
+        "fuzzy_match": true
+      },
+      {
+        "entity": "entity_2172",
+        "values": [
+          {
+            "type": "synonyms",
+            "value": "22 years to 25 years",
+            "synonyms": []
+          },
+          {
+            "type": "synonyms",
+            "value": "26 years to 32 years",
+            "synonyms": []
+          },
+          {
+            "type": "synonyms",
+            "value": "33 years to 46 years",
+            "synonyms": []
+          },
+          {
+            "type": "synonyms",
+            "value": "47 years to 54 years",
+            "synonyms": []
+          },
+          {
+            "type": "synonyms",
+            "value": "55 years to 60 year",
+            "synonyms": []
+          },
+          {
+            "type": "synonyms",
+            "value": "Greater than 60 years",
+            "synonyms": []
+          },
+          {
+            "type": "synonyms",
+            "value": "Less than 22 years",
+            "synonyms": []
+          }
+        ],
+        "fuzzy_match": true
+      },
+      {
+        "entity": "entity_2290",
+        "values": [
+          {
+            "type": "synonyms",
+            "value": "I am glad it's protecting my privacy",
+            "synonyms": []
+          },
+          {
+            "type": "synonyms",
+            "value": "My name is confidential then, from my partner",
+            "synonyms": []
+          }
+        ],
+        "fuzzy_match": true
+      },
+      {
+        "entity": "entity_25003",
+        "values": [
+          {
+            "type": "synonyms",
+            "value": "Hey!",
+            "synonyms": [
+              "Hello!"
+            ]
+          }
+        ],
+        "fuzzy_match": true
+      },
+      {
+        "entity": "entity_26571",
+        "values": [
+          {
+            "type": "synonyms",
+            "value": "Anal Sex",
+            "synonyms": []
+          },
+          {
+            "type": "synonyms",
+            "value": "Both",
+            "synonyms": []
+          },
+          {
+            "type": "synonyms",
+            "value": "Vaginal Sex",
+            "synonyms": []
+          }
+        ],
+        "fuzzy_match": true
+      },
+      {
+        "entity": "entity_27033",
+        "values": [
+          {
+            "type": "synonyms",
+            "value": "No, I have not",
+            "synonyms": [
+              "Never"
+            ]
+          },
+          {
+            "type": "synonyms",
+            "value": "Yes, I have",
+            "synonyms": [
+              "Yep"
+            ]
+          }
+        ],
+        "fuzzy_match": true
+      },
+      {
+        "entity": "entity_27051",
+        "values": [
+          {
+            "type": "synonyms",
+            "value": "Oh! I have always wanted to know that.",
+            "synonyms": []
+          },
+          {
+            "type": "synonyms",
+            "value": "Thanks!!",
+            "synonyms": []
+          }
+        ],
+        "fuzzy_match": true
+      },
+      {
+        "entity": "entity_29732",
+        "values": [
+          {
+            "type": "synonyms",
+            "value": "Viral load is detectable",
+            "synonyms": []
+          },
+          {
+            "type": "synonyms",
+            "value": "Viral load is not known",
+            "synonyms": []
+          },
+          {
+            "type": "synonyms",
+            "value": "Viral load is undetectable",
+            "synonyms": []
+          }
+        ],
+        "fuzzy_match": true
+      },
+      {
+        "entity": "entity_32407",
+        "values": [
+          {
+            "type": "synonyms",
+            "value": "Thanks for letting me know",
+            "synonyms": []
+          },
+          {
+            "type": "synonyms",
+            "value": "Understood",
+            "synonyms": []
+          }
+        ],
+        "fuzzy_match": true
+      },
+      {
+        "entity": "entity_32727",
+        "values": [
+          {
+            "type": "synonyms",
+            "value": "Please Explain More",
+            "synonyms": []
+          }
+        ],
+        "fuzzy_match": true
+      },
+      {
+        "entity": "entity_40323",
+        "values": [
+          {
+            "type": "synonyms",
+            "value": "I see",
+            "synonyms": []
+          },
+          {
+            "type": "synonyms",
+            "value": "What about someone with multiple partners then?",
+            "synonyms": []
+          }
+        ],
+        "fuzzy_match": true
+      },
+      {
+        "entity": "entity_41359",
+        "values": [
+          {
+            "type": "synonyms",
+            "value": "Sex with multiple partners",
+            "synonyms": []
+          },
+          {
+            "type": "synonyms",
+            "value": "Sex with one partner",
+            "synonyms": []
+          }
+        ],
+        "fuzzy_match": true
+      },
+      {
+        "entity": "entity_41870",
+        "values": [
+          {
+            "type": "synonyms",
+            "value": "Injectables",
+            "synonyms": [
+              "Syringe  Narcotics"
+            ]
+          },
+          {
+            "type": "synonyms",
+            "value": "Receptive Anal Sex",
+            "synonyms": []
+          },
+          {
+            "type": "synonyms",
+            "value": "Unsafe sex",
+            "synonyms": [
+              "Torn condoms"
+            ]
+          }
+        ],
+        "fuzzy_match": true
+      },
+      {
+        "entity": "entity_42585",
+        "values": [
+          {
+            "type": "synonyms",
+            "value": "Okay",
+            "synonyms": []
+          }
+        ],
+        "fuzzy_match": true
+      },
+      {
+        "entity": "entity_43480",
+        "values": [
+          {
+            "type": "synonyms",
+            "value": "No, I don't at the moment.",
+            "synonyms": []
+          },
+          {
+            "type": "synonyms",
+            "value": "Show my QR code, instead",
+            "synonyms": []
+          },
+          {
+            "type": "synonyms",
+            "value": "Yes, go ahead",
+            "synonyms": []
+          }
+        ],
+        "fuzzy_match": true
+      },
+      {
+        "entity": "entity_43936",
+        "values": [
+          {
+            "type": "synonyms",
+            "value": "May be later",
+            "synonyms": []
+          },
+          {
+            "type": "synonyms",
+            "value": "Yes, let's do this",
+            "synonyms": []
+          }
+        ],
+        "fuzzy_match": true
+      },
+      {
+        "entity": "entity_44621",
+        "values": [
+          {
+            "type": "synonyms",
+            "value": "No, I have not been tested ever.",
+            "synonyms": []
+          },
+          {
+            "type": "synonyms",
+            "value": "Yes, I have been tested.",
+            "synonyms": []
+          }
+        ],
+        "fuzzy_match": true
+      },
+      {
+        "entity": "entity_44967",
+        "values": [
+          {
+            "type": "synonyms",
+            "value": "No",
+            "synonyms": [
+              "Sometime later"
+            ]
+          },
+          {
+            "type": "synonyms",
+            "value": "Yeah",
+            "synonyms": [
+              "Yep"
+            ]
+          }
+        ],
+        "fuzzy_match": true
+      },
+      {
+        "entity": "entity_45922",
+        "values": [
+          {
+            "type": "synonyms",
+            "value": "No, I have not.",
+            "synonyms": []
+          },
+          {
+            "type": "synonyms",
+            "value": "Yes, I have taken.",
+            "synonyms": []
+          }
+        ],
+        "fuzzy_match": true
+      },
+      {
+        "entity": "entity_4657",
+        "values": [
+          {
+            "type": "synonyms",
+            "value": "Ahh, I see",
+            "synonyms": []
+          },
+          {
+            "type": "synonyms",
+            "value": "How so?",
+            "synonyms": []
+          }
+        ],
+        "fuzzy_match": true
+      },
+      {
+        "entity": "entity_47594",
+        "values": [
+          {
+            "type": "synonyms",
+            "value": "Buy Online",
+            "synonyms": []
+          },
+          {
+            "type": "synonyms",
+            "value": "Learn more about STDs",
+            "synonyms": []
+          },
+          {
+            "type": "synonyms",
+            "value": "Scan Partner's QR Code",
+            "synonyms": []
+          },
+          {
+            "type": "synonyms",
+            "value": "Track HIV Risk",
+            "synonyms": []
+          }
+        ],
+        "fuzzy_match": true
+      },
+      {
+        "entity": "entity_48770",
+        "values": [
+          {
+            "type": "synonyms",
+            "value": "Oh! That's alot",
+            "synonyms": []
+          }
+        ],
+        "fuzzy_match": true
+      },
+      {
+        "entity": "entity_4891",
+        "values": [
+          {
+            "type": "synonyms",
+            "value": "Is that so?",
+            "synonyms": []
+          },
+          {
+            "type": "synonyms",
+            "value": "Oh!!",
+            "synonyms": []
+          }
+        ],
+        "fuzzy_match": true
+      },
+      {
+        "entity": "entity_48954",
+        "values": [
+          {
+            "type": "synonyms",
+            "value": "Agender",
+            "synonyms": []
+          },
+          {
+            "type": "synonyms",
+            "value": "Cis-Female",
+            "synonyms": []
+          },
+          {
+            "type": "synonyms",
+            "value": "Cis-Male",
+            "synonyms": []
+          },
+          {
+            "type": "synonyms",
+            "value": "Non-Binary",
+            "synonyms": []
+          },
+          {
+            "type": "synonyms",
+            "value": "Trans-Female",
+            "synonyms": []
+          },
+          {
+            "type": "synonyms",
+            "value": "Trans-Male",
+            "synonyms": []
+          }
+        ],
+        "fuzzy_match": true
+      },
+      {
+        "entity": "entity_49687",
+        "values": [
+          {
+            "type": "synonyms",
+            "value": "Please explain more",
+            "synonyms": []
+          }
+        ],
+        "fuzzy_match": true
+      },
+      {
+        "entity": "entity_49712",
+        "values": [
+          {
+            "type": "synonyms",
+            "value": "How will scanning help in knowing risk?",
+            "synonyms": []
+          }
+        ],
+        "fuzzy_match": true
+      },
+      {
+        "entity": "entity_5232",
+        "values": [
+          {
+            "type": "synonyms",
+            "value": "No, I don't feel like it.",
+            "synonyms": [
+              "Nope",
+              "not now"
+            ]
+          },
+          {
+            "type": "synonyms",
+            "value": "Yes, please proceed",
+            "synonyms": [
+              "right",
+              "Yeah"
+            ]
+          }
+        ],
+        "fuzzy_match": true
+      },
+      {
+        "entity": "entity_6402",
+        "values": [
+          {
+            "type": "synonyms",
+            "value": "Both",
+            "synonyms": []
+          },
+          {
+            "type": "synonyms",
+            "value": "Female",
+            "synonyms": []
+          },
+          {
+            "type": "synonyms",
+            "value": "Male",
+            "synonyms": []
+          }
+        ],
+        "fuzzy_match": true
+      },
+      {
+        "entity": "entity_8526",
+        "values": [
+          {
+            "type": "synonyms",
+            "value": "Thanks EaseBot",
+            "synonyms": []
+          }
+        ],
+        "fuzzy_match": true
+      },
+      {
+        "entity": "entity_9774",
+        "values": [
+          {
+            "type": "synonyms",
+            "value": "72 hour pill",
+            "synonyms": []
+          },
+          {
+            "type": "synonyms",
+            "value": "Calcium Tablets",
+            "synonyms": []
+          },
+          {
+            "type": "synonyms",
+            "value": "Condoms",
+            "synonyms": []
+          },
+          {
+            "type": "synonyms",
+            "value": "Folic Acid Tablets",
+            "synonyms": []
+          },
+          {
+            "type": "synonyms",
+            "value": "HIV Self Test kit",
+            "synonyms": []
+          },
+          {
+            "type": "synonyms",
+            "value": "Iron Tablets",
+            "synonyms": []
+          },
+          {
+            "type": "synonyms",
+            "value": "Meftal Spas",
+            "synonyms": []
+          },
+          {
+            "type": "synonyms",
+            "value": "Pads",
+            "synonyms": []
+          },
+          {
+            "type": "synonyms",
+            "value": "Pregnancy Test-kit",
+            "synonyms": []
+          }
+        ],
+        "fuzzy_match": true
+      },
+      {
+        "entity": "sys-number",
+        "values": []
+      }
+    ],
+    "metadata": {
+      "api_version": {
+        "major_version": "v2",
+        "minor_version": "2018-11-08"
+      }
+    },
+    "variables": [
+      {
+        "title": "Age",
+        "variable": "Age",
+        "data_type": "any",
+        "description": "Age",
+        "initial_value": {
+          "scalar": 0
+        }
+      },
+      {
+        "title": "DateofBirth",
+        "variable": "DateofBirth",
+        "data_type": "any",
+        "description": ""
+      }
+    ],
+    "data_types": [],
+    "counterexamples": [],
+    "system_settings": {
+      "topic_switch": {
+        "enabled": true,
+        "messages": {
+          "confirm_return": {
+            "text": "Return to previous topic?"
+          },
+          "confirm_switch": {
+            "text": "Switch from the current topic?"
+          }
+        },
+        "question_steps_threshold": 2
+      },
+      "disambiguation": {
+        "prompt": "Did you mean:",
+        "enabled": true,
+        "randomize": true,
+        "max_suggestions": 5,
+        "suggestion_text_policy": "title",
+        "none_of_the_above_prompt": "None of the above"
+      },
+      "intent_classification": {
+        "training_backend_version": "v2"
+      },
+      "spelling_auto_correct": true
+    },
+    "learning_opt_out": false
+  },
+  "description": "",
+  "workspace_id": "a692ae23-489b-4098-883f-d3de2c2a80ec",
+  "dialog_settings": {
+    "actions": true
+  }
+}
