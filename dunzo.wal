@@ -1,0 +1,16 @@
+¥defVar --name from_currency --type String
+defVar --name to_currency --type String
+defVar --name Chrome --type String --value Text
+defVar --name input --type String
+defVar --name product --type String
+defVar --name quantity --type String
+inputBox --title Dunzo --prompt "Which product do you want" product=value
+inputBox --title Dunzo --prompt "Which quantity ( in numbers )" --value 1 quantity=value
+webStart --name "${Chrome}" --type "Chrome"
+webNavigate --url "https://www.dunzo.com/search"
+setValue --value "${product}" --setValueType "Automatic" --algorithm "Default" --matchcondition "Equals" --selector "ClassName" --classname "\"f7phya-0 hQUGbR\""
+sendKeys --keys Enter
+webClick --selector "ClassAndValue" --class Shape --elementvalue circular
+webClick --selector "ClassAndValue" --class Shape --elementvalue circular
+webNavigate --url "https://www.dunzo.com/checkout"
+webClose --name chrome --leavebrowseropen *21.0.1.0
